@@ -1,0 +1,124 @@
+---
+title: "NMEP dashboard development steps"
+author: "Enku"
+format: html
+editor: visual
+---
+
+## Introduction
+
+Ethiopia has made substantial progress in malaria control and elimination; however, since 2022, the country has experienced a resurgence in malaria cases. This shifting epidemiological pattern underscores the need for continuous, timely monitoring of malaria trends, including geographic and seasonal variations, to support responsive programmatic decision-making.
+
+Routine malaria surveillance is conducted through the national Health Management Information System (HMIS), implemented using District Health Information Software 2. The system captures comprehensive data on malaria testing, confirmed cases, species distribution, and malaria-related deaths across inpatient and outpatient settings. These data serve as the primary source for routine monitoring, review meetings, and planning within the National Malaria Elimination Program.
+
+Despite the availability of rich HMIS data, routine analysis is largely conducted through static outputs prepared for specific reporting needs. This approach limits the ability to explore trends dynamically, monitor performance consistently, and rapidly identify geographic or temporal variations. In addition, repeated manual processes for data extraction, cleaning, and aggregation introduce inefficiencies and delay timely use of data.
+
+In the absence of a centralized and routinely updated analytical platform, opportunities for proactive and decentralized data-driven decision-making remain constrained. To address these gaps, a standardized and interactive malaria dashboard was developed using HMIS data. This document outlines the step-by-step process followed to design, develop, and implement the dashboard to support routine program monitoring and decision-making.
+
+## Overview of Dashboard Development Process
+
+The development of the HMIS-based National Malaria Elimination Program (NMEP) dashboard followed a structured workflow consisting of the following key steps:
+
+1.  Data extraction from DHIS2
+2.  Data cleaning and preparation
+3.  Indicator definition and calculation
+4.  Visualization and dashboard development
+5.  Deployment and routine updating
+
+Each of these steps is described in detail in the following sections.
+
+## 1. Data extraction from DHIS2
+
+Data for the dashboard were extracted from the national HMIS implemented through District Health Information Software 2 (DHIS2). The extraction covered the period from January 2020 to January 2026 and was conducted at the woreda level, which was selected as the lowest administrative unit for analysis and visualization.
+
+Data were extracted from three primary HMIS datasets to support comprehensive analysis of malaria burden, service delivery, and reporting performance.
+
+### Disease Surveillance Data
+
+The disease report was downloaded with two additional analytic dimensions, alongside the default dimensions (data elements, period, and organisational unit), to enable disaggregation of malaria burden:
+
+- Outcome (morbidity and mortality)\
+- Department (inpatient and outpatient)
+
+A total of 16 data elements were included. These comprised both ICD-10–based indicators, which were predominantly used prior to mid-2023, and ICD-11–based indicators, which are currently in use. This approach ensured continuity of analysis across changes in disease classification systems.
+
+#### Disease Surveillance Data Elements
+
+**ICD-10 (2018–2023)**
+
+- B50-196 Malaria (Plasmodium falciparum malaria)\
+- B50-197 Malaria (Plasmodium falciparum malaria with cerebral complications)\
+- B50-198 Malaria (Other severe and complicated Plasmodium falciparum malaria)\
+- B50-199 Malaria (Plasmodium falciparum malaria unspecified)\
+- B50-200 Malaria (Plasmodium vivax malaria)\
+- B50-201 Malaria (Plasmodium vivax malaria with other complications)\
+- B50-202 Malaria (Plasmodium vivax malaria without complication)\
+- B50-203 Mixed malaria (Other parasitologically confirmed malaria)\
+- B50-204 Malaria (unspecified malaria)
+
+**ICD-11 (2023–present)**
+
+- ESV-ICD11 1F40 Malaria due to *Plasmodium falciparum*\
+
+- ESV-ICD11 1F43 Malaria due to *Plasmodium ovale*\
+
+- ESV-ICD11 1F42 Malaria due to *Plasmodium malariae*\
+
+- ESV-ICD11 1F41 Malaria due to *Plasmodium vivax*\
+
+- ESV-ICD11 1F44 Other parasitologically confirmed malaria\
+
+- ESV-ICD11 1F40/1F41 Mixed malaria (*P. falciparum* and *P. vivax*)\
+
+- ESV-ICD11 1F45 Malaria without parasitological confirmation
+
+### Service Delivery Data
+
+Service report data were extracted separately, as this dataset does not support the additional dimensions used in the disease report. Therefore,only the default dimensions were applied:
+
+- Period
+- Data elements
+- Organisational unit
+
+The dataset included three key data elements:
+
+- Malaria tests (legacy indicator used prior to 2023: "-2017_Total number of slides or RDT performed for malaria diagnosis")
+- Malaria tests (current indicator: "MAL_Slides or RDT performed for malaria diagnosis")
+- Confirmed positive malaria tests: "MAL_Slides or RDT Positive"
+
+Separating service data extraction ensured compatibility with DHIS2 structure and preserved data integrity.
+
+### Reporting Completeness and Timeliness
+
+Data on reporting completeness and timeliness were obtained from the integrated service report used across malaria, Neglected Tropical Disease (NTD) and Non-Communicable Disease (NCD) programs, as no malaria-specific reporting assessment dataset exists.
+
+A total of nine data elements were included, disaggregated by facility type:
+
+- Hospitals, health centers, and private facilities
+- Basic health posts
+- Comprehensive health posts
+
+For each facility category, the following indicators were extracted:
+
+- Actual reports submitted
+- Reports submitted on time
+- Expected reports
+
+The dataset was downloaded with the facility type dimension to enable assessment of reporting performance across different levels of the health system, supporting identification of gaps for targeted intervention.
+
+### Data Export Format
+
+All datasets were manually exported from DHIS2 in CSV format. These datasets formed the basis for subsequent data cleaning, transformation, and indicator calculation processes used in the dashboard.
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
