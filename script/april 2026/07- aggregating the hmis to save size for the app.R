@@ -9,16 +9,33 @@ library(lubridate)
 library(sf)
 
 # reading the cleaned hmis data
-hmis <- readRDS("data/processed/jan 2020-mar 2026/jan_2020_mar_2026_hmis_woreda_cleaning_completed.rds")
+hmis <- readRDS("data/processed/april 2026/upto_apr_2026_hmis_for_app.rds")
+
+# aggregate to save space for the shiny app
+hmis_dashboard <- hmis|>
+  group_by(
+    id_1082,
+    region,
+    zone,
+    woreda,
+    facility_type,
+    greg_date,
+    department,
+    outcome,
+    data_type
+  ) |>
+  summarise(
+    value = sum(value, na.rm = TRUE),
+    .groups = "drop"
+  )
 
 # read sf
 sf <- readRDS("data/eth-admin3-v1082-clean-id.rds")|>
   sf::st_drop_geometry()
 
 
-
 # prepare a geo look up
-geo_lookup <- hmis %>%
+geo_lookup <- hmis_dashboard %>%
   distinct(
     id_1082,
     region,
@@ -28,7 +45,7 @@ geo_lookup <- hmis %>%
   arrange(region, zone, woreda)
 
 # save the geo look up
-saveRDS(geo_lookup, "data/processed/jan 2020-mar 2026/geo_lookup.rds")
+saveRDS(geo_lookup, "data/processed/april 2026/geo_lookup.rds")
 
 # create a population lookup
 pop_lookup <- read_csv("data/eth-admin3-v1082-clean-id_with_pop_2030.csv")|>
@@ -36,7 +53,7 @@ pop_lookup <- read_csv("data/eth-admin3-v1082-clean-id_with_pop_2030.csv")|>
   select(-region_old)
 
 # save population lookup
-#saveRDS(pop_lookup, "data/processed/jan 2020-mar 2026/population_lookup.rds")
+#saveRDS(pop_lookup, "data/processed/population_lookup.rds")
 
 # creating time lookup
 time_lookup <- tibble(
@@ -50,7 +67,7 @@ time_lookup <- tibble(
 # create gregorian variable
 time_lookup <- time_lookup %>%
   mutate(
-    greg_year_num = year(greg_date),
+    greg_year = year(greg_date),
     
     greg_month = month(
       greg_date,
@@ -58,10 +75,11 @@ time_lookup <- time_lookup %>%
       abbr = TRUE
     ),
     
-   greg_year_ui = factor(
-        greg_year_num,
-        levels = 2020:2026
-      ),
+    greg_year_ui = factor(
+      greg_year,
+      levels = 2020:2026,
+      labels = 2020:2026
+    ),
     
     greg_month_num = month(greg_date),
     
@@ -77,8 +95,8 @@ time_lookup <- time_lookup %>%
     
     efy = ifelse(
       greg_month_num >= 7,
-      greg_year_num - 7,
-      greg_year_num - 8
+      greg_year - 7,
+      greg_year - 8
     ),
     
     efy_month_num = case_when(
@@ -117,25 +135,38 @@ time_lookup <- time_lookup %>%
   )
 
 # save the time lookup
-#saveRDS(time_lookup,"data/processed/jan 2020-mar 2026/time_lookup.rds")
+#saveRDS(time_lookup,"data/processed/time_lookup.rds")
 
 
 # join timelookup to hmis
-hmis <- hmis %>%
+hmis_dashboard <- hmis_dashboard %>%
   left_join(
     time_lookup,
     by = "greg_date"
   )
 
 # selecting the columns i need before saving
-hmis <- hmis |>
+hmis_dashboard <- hmis_dashboard |>
   select(id_1082, region, zone, woreda, greg_date, greg_year, 
-         greg_month = greg_month.y, greg_month_num, month_year = month_year.y,
+         greg_month, greg_month_num, month_year,
          efy, greg_year_ui,efy_month_num, efy_time, facility_type, department, outcome,
          data_type, value)
 
+
+# sanity check
+hmis_dashboard |>
+  filter(data_type %in% c("tested", "positives"))|>
+  group_by(data_type) |>
+  summarise(total = sum(value, na.rm = T)) # correct
+
+
+hmis_dashboard |>
+  filter(data_type %in% c("tested", "positives") & month_year =="Apr-2026")|>
+  group_by(data_type) |>
+  summarise(total = sum(value, na.rm = T)) # correct
+
 # saving the clean hmis for app use
-saveRDS(hmis, "data/processed/jan 2020-mar 2026/clean_hmis_2020_2026.rds" )
+saveRDS(hmis_dashboard, "data/processed/april 2026/upto_apr_2026_hmis_for_app.rds")
 
 
-#-------------------------------------------------------------------
+

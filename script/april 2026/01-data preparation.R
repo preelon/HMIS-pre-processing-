@@ -1,4 +1,4 @@
-# This script is prepared to change the datasets
+# This script is prepared to prepare te hmis dataset in suitable form before starting analysis
 # into long vesrion
 
 rm(list=ls())
@@ -18,14 +18,23 @@ df_service <- read_csv("data/raw/April 2026 hmis/service_dat_april2026.csv")
 df_report <- read_csv("data/raw/April 2026 hmis/report_dat_april2026.csv")
 
 # -------------------------------------------------------------------
-# 1. standardizing the names of the variable names in the df_species and 
-#keeping only cols we need for the work
-df_species <- df_species |>
-  rename(period = periodname,
-         region = orgunitlevel2,
-         zone= orgunitlevel3,
-         woreda= orgunitlevel4)
+#Standardization of geographic variables
 
+rename_geo <- function(df){
+  df |>
+    rename(
+      period = periodname,
+      region = orgunitlevel2,
+      zone   = orgunitlevel3,
+      woreda = orgunitlevel4
+    )
+}
+
+df_species <- rename_geo(df_species)
+df_service <- rename_geo(df_service)
+df_report  <- rename_geo(df_report)
+
+#----------------------------------------------------------------
 # renaming a column with IPD/OPD observations to department
 dept_col <- names(df_species)[sapply(df_species, function(x) {
   any(as.character(x) %in% c("IPD", "OPD"))
@@ -53,13 +62,6 @@ df_species_long <- df_species_long |>
 
 # -----------------------------------------------------------------------
 # 2. standardizing the names of the variable names in the df_sevice and 
-#keeping only cols we need for the work
-df_service <- df_service |>
-  rename(period = periodname,
-         region = orgunitlevel2,
-         zone= orgunitlevel3,
-         woreda= orgunitlevel4)
-
 
 # changing the service data to long format
 df_service_long <- df_service |>
@@ -73,12 +75,6 @@ df_service_long <- df_service_long |>
 
 #-------------------------------------------------------------------------
 # 3. standardizing the names of the variable names in the df_report and 
-#keeping only cols we need for the work
-df_report <- df_report |>
-  rename(period = periodname,
-         region = orgunitlevel2,
-         zone= orgunitlevel3,
-         woreda= orgunitlevel4)
 
 # renaming a column automatically as facility_type based on the observations
 fac_type_col <- names(df_report)[sapply(df_report, function(x){

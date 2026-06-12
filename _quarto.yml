@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "NMEP Dashboard Documentation"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 4
+    code-copy: true
+    code-fold: true

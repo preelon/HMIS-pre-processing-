@@ -24,7 +24,7 @@ out_path = "data/processed/april 2026/april_mar_2026_hmis_woreda_cleaning_comple
 wclean <- woreda_clean(dat_path = dat_path,
                        pre_path = pre_path,
                        ref_path = ref_path,
-                       out_path = out_path)  #33 unmatched
+                       out_path = out_path)  # 0unmatched
 
 # save unmatched names for further inclusion in the pre-processed file
 write_csv(wclean$not_matched, 
@@ -33,7 +33,7 @@ write_csv(wclean$not_matched,
 # save candidate names to be considered when including in the pre-processed file
 write_csv(wclean$candidates, 
           "data/processed/candidate_woredas_apr_2026-latest.csv")
-
+# ------------------------------------------------------------------------
 # lets include id 1082 in the hmis data by joining it to the sf
 clean_woredas <- readRDS(out_path)|>
   select(-region_old, -zone_old, -woreda_old, -non_zero_ever, -matched)
