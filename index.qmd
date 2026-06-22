@@ -15,8 +15,8 @@ Select documentations below:-
 ---
 ### HMIS-driven Dashboard Guide
 
-Interactive dashboard workflow documentation. [Bulletin Workflow](bulletin/)
+Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/)
 
 ### Monthly Bulletin Workflow
 
-End-to-end workflow for monthly bulletin production. [Dashboard Workflow](dashboard/)
+End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulletin/)
