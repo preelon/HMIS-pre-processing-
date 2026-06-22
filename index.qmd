@@ -20,3 +20,6 @@ Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/)
 ### Monthly Bulletin Workflow
 
 End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulletin/)
+
+### Insights into data consistency across HMIS Service Vs Disease report
+Report of a retrospective observational analysis that was conducted using 5 years of HMIS data. (**Coming soon**)
