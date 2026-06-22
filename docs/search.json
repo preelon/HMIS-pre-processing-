@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "title": "NMEP Data & Analytics Documentation Portal",
     "section": "",
-    "text": "The National Malaria Elimination Program (NMEP) malaria dashboard was developed to support routine monitoring and analysis of malaria indicators using data from the national Health Management Information System (HMIS), implemented through DHIS2.\nThe dashboard integrates routine HMIS data on malaria testing, confirmed cases, species distribution, and malaria-related deaths across inpatient and outpatient services. These data are used for monitoring malaria trends over time and across geographic areas.\nThe system is designed to enable standardized analysis of key malaria indicators at woreda level, supporting routine program monitoring, reporting, and decision-making.\nThis document describes the step-by-step process used to develop the dashboard, including data extraction, processing, indicator construction, and deployment."
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\n\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
   },
   {
     "objectID": "index.html#disease-surveilance-data",
@@ -236,5 +236,292 @@
     "title": "NMEP Monthly Bulletin Workflow",
     "section": "Step 7: Publication",
     "text": "Step 7: Publication\n\nExport final bulletin as PDF\nSave in monthly archive folder\nShare with stakeholders"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "",
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\n\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
+  },
+  {
+    "objectID": "index.html#modules",
+    "href": "index.html#modules",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Modules",
+    "text": "Modules\n\n\n\nDashboard Guide\n\n\nInteractive dashboard documentation and indicator guide.\n\nOpen Module →\n\n\n\nMonthly Bulletin Workflow\n\n\nEnd-to-end workflow for bulletin production.\n\nOpen Module →"
+  },
+  {
+    "objectID": "index.html#documentation-modules",
+    "href": "index.html#documentation-modules",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Documentation Modules",
+    "text": "Documentation Modules\n\nDashboard Guide\nInteractive dashboard documentation and indicator guide. Open Module\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for bulletin production. Open Module"
+  },
+  {
+    "objectID": "dashboard/index.html",
+    "href": "dashboard/index.html",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "",
+    "text": "The National Malaria Elimination Program (NMEP) malaria dashboard was developed to support routine monitoring and analysis of malaria indicators using data from the national Health Management Information System (HMIS), implemented through DHIS2.\nThe dashboard integrates routine HMIS data on malaria testing, confirmed cases, species distribution, and malaria-related deaths across inpatient and outpatient services. These data are used for monitoring malaria trends over time and across geographic areas.\nThe system is designed to enable standardized analysis of key malaria indicators at woreda level, supporting routine program monitoring, reporting, and decision-making.\nThis document describes the step-by-step process used to develop the dashboard, including data extraction, processing, indicator construction, and deployment."
+  },
+  {
+    "objectID": "dashboard/index.html#disease-surveilance-data",
+    "href": "dashboard/index.html#disease-surveilance-data",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "1.1 Disease surveilance Data",
+    "text": "1.1 Disease surveilance Data\nThe disease surveillance dataset was extracted from DHIS2 using the following components:\n\nData elements (malaria-related indicators)\n\nPeriod\n\nOrganizational unit\n\nOutcome (morbidity and mortality disaggregation)\n\nDepartment (inpatient and outpatient disaggregation)\n\nThese components enabled structured disaggregation of malaria burden across time, geography, and service delivery settings.\nA total of 16 malaria-related data elements were included. These comprised both ICD-10–based data elements (used prior to mid-2023) and ICD-11–based data elements (currently in use). This approach ensured continuity of analysis despite changes in disease classification systems.\nDisease Surveillance Data Elements\nICD-10 (2018–2023)\n\nB50–196 Malaria (Plasmodium falciparum malaria)\n\nB50–197 Malaria (Plasmodium falciparum with cerebral complications)\n\nB50–198 Malaria (Other severe and complicated Plasmodium falciparum malaria)\n\nB50–199 Malaria (Plasmodium falciparum unspecified)\n\nB50–200 Malaria (Plasmodium vivax malaria)\n\nB50–201 Malaria (Plasmodium vivax with other complications)\n\nB50–202 Malaria (Plasmodium vivax without complication)\n\nB50–203 Mixed malaria (Other parasitologically confirmed malaria)\n\nB50–204 Malaria (Unspecified malaria)\n\nICD-11 (2023–present)\n\n1F40 Malaria due to Plasmodium falciparum\n\n1F41 Malaria due to Plasmodium vivax\n\n1F42 Malaria due to Plasmodium malariae\n\n1F43 Malaria due to Plasmodium ovale\n\n1F44 Other parasitologically confirmed malaria\n\n1F40/1F41 Mixed malaria (P. falciparum and P. vivax)\n\n1F45 Malaria without parasitological confirmation"
+  },
+  {
+    "objectID": "dashboard/index.html#service-delivery-data",
+    "href": "dashboard/index.html#service-delivery-data",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "1.2 Service Delivery Data",
+    "text": "1.2 Service Delivery Data\nService delivery data were extracted separately from DHIS2, as this dataset does not support the additional disaggregation dimensions used in the disease surveillance dataset (i.e., outcome and department). As a result, only the standard DHIS2 components were applied:\n\nData elements\n\nPeriod\n\nOrganizational unit\n\nThe dataset included three key malaria-related data elements:\n\nMalaria tests (legacy indicator used prior to 2023: “Total number of slides or RDT performed for malaria diagnosis”)\n\nMalaria tests (current indicator: “Slides or RDT performed for malaria diagnosis”)\n\nConfirmed positive malaria tests\n\nThis separation ensured consistency with the DHIS2 service reporting structure while maintaining data integrity across indicator definitions and system updates."
+  },
+  {
+    "objectID": "dashboard/index.html#reporting-completeness-and-timeliness-data",
+    "href": "dashboard/index.html#reporting-completeness-and-timeliness-data",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "1.3 Reporting Completeness and Timeliness Data",
+    "text": "1.3 Reporting Completeness and Timeliness Data\nData on service report completeness and timeliness were extracted from the integrated service reporting dataset used across malaria, NTD, and NCD programs, as no malaria-specific reporting performance dataset is available.\nThe dataset included nine data elements, disaggregated by facility type:\n\nHospitals, health centers, and private facilities\n\nBasic health posts\n\nComprehensive health posts\n\nFor each facility type, the following indicators were extracted:\n\nActual reports submitted\n\nReports submitted on time\n\nExpected reports\n\nThese data elements were used to assess service report completeness and timeliness across different levels of the health system.\nData Export Format\nAll datasets were manually exported from DHIS2 in CSV format. These exports formed the input datasets for subsequent data cleaning, transformation, and indicator calculation within the dashboard development workflow."
+  },
+  {
+    "objectID": "dashboard/index.html#data-preparation",
+    "href": "dashboard/index.html#data-preparation",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "2.1 Data preparation",
+    "text": "2.1 Data preparation\n\n2.1.1 Standardization of variable names and geographic fields\nThe three datasets extracted from DHIS2 were first read into the R environment.\n\n\nCode\nlibrary(tidyverse) \nlibrary(lubridate)\n\n# reading the disease report dat\ndf_species &lt;- suppressWarnings(\n  read_csv(\"data/raw/April 2026 hmis/disease_dat_april2026.csv\", show_col_types = FALSE))\n\n# reading the service report data\ndf_service &lt;- suppressWarnings(read_csv(\"data/raw/April 2026 hmis/service_dat_april2026.csv\", show_col_types = FALSE))\n\n# reading the dataset for service report completeness & timeliness\ndf_report &lt;-suppressMessages(\n  suppressWarnings(\n  read_csv(\"data/raw/April 2026 hmis/report_dat_april2026.csv\",show_col_types = FALSE)))\n\n# checking the variable names for the 3 dataset\nnames(df_species)\nnames(df_service)\nnames(df_report)\n\n# preparing a function to rename the adminstartive levels \nrename_geo &lt;- function(df){\n  df |&gt;\n    rename(\n      period = periodname,\n      region = orgunitlevel2,\n      zone   = orgunitlevel3,\n      woreda = orgunitlevel4\n    )\n}\n\n# performing demonstrative leve renaming using the above function\ndf_species &lt;- rename_geo(df_species)\ndf_service &lt;- rename_geo(df_service)\ndf_report  &lt;- rename_geo(df_report)\n\n\nAt this stage, variable names and administrative unit fields were standardized across all datasets to ensure consistency prior to integration.\n\n\n2.1.2 Reshaping to long format\nEach dataset was transformed from wide format to long format to enable indicator-level analysis.\n\n\nCode\ndf_species_long &lt;- df_species |&gt;\n  pivot_longer(cols = matches(\"ESV|B50\"),\n               names_to = \"data_type\",\n               values_to = \"value\")\n\ndf_service_long &lt;- df_service |&gt;\n  pivot_longer(cols = contains(\"RDT\"),\n               names_to = \"data_type\",\n               values_to = \"value\")\n\ndf_report_long &lt;- df_report |&gt;\n  pivot_longer(cols = matches(\"NCD|NTD\"),\n               names_to = \"data_type\",\n               values_to = \"value\")\n\n\n\n\n2.1.3 Standardization of indicator dimensions\nTo allow integration, missing categorical variables were added to ensure a consistent structure across datasets.\n\n\nCode\ndf_service_long &lt;- df_service_long |&gt;\n  mutate(department = NA_character_,\n         outcome = NA_character_,\n         facility_type = NA_character_)\n\ndf_report_long &lt;- df_report_long |&gt;\n  mutate(department = NA_character_,\n         outcome = NA_character_)\n\ndf_species_long &lt;- df_species_long |&gt;\n  mutate(facility_type = NA_character_)\n\n\n\n\n2.1.4 Dataset integration\nAfter standardizing variable names and aligning dataset structures, the disease surveillance, service delivery, and reporting datasets were integrated into a single unified dataset.\n\n\nCode\ncombined_hmis &lt;- bind_rows(\n  df_species_long,\n  df_service_long,\n  df_report_long\n)\n\n\nThe resulting dataset (`combined_hmis`) serves as the primary integrated dataset for subsequent processing steps, including geographic cleaning and indicator construction for the dashboard.\n\n\nCode\n# saving the integrated dataset\nsaveRDS(combined_hmis,\n        \"data/raw/April 2026 hmis/combined-hmis-apr_2026.rds\")"
+  },
+  {
+    "objectID": "dashboard/index.html#general-data-cleaning-and-harmonization",
+    "href": "dashboard/index.html#general-data-cleaning-and-harmonization",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "2.2. General Data Cleaning and Harmonization",
+    "text": "2.2. General Data Cleaning and Harmonization\nFollowing the creation of the integrated dataset (combined_hmis), a general cleaning and harmonization process was applied to standardize variable names, data elements, time variables, and geographic identifiers prior to geographic cleaning.\nThis step ensured that the dataset was consistent, structured, and ready for geospatial standardization and downstream analysis.\n\n2.2.1 Loading processed dataset\nThe integrated HMIS dataset from the previous step was loaded into the R environment for further cleaning and transformation.\n\n\nCode\n# libraries \nlibrary(tidyverse) \nlibrary(lubridate) \nlibrary(janitor) \nlibrary(sf) \nlibrary(stringr)\n\n#reading the integrated dataset\ncombined_hmis &lt;- readRDS( \"data/raw/April 2026 hmis/combined-hmis-apr_2026.rds\" )\n\n\n\n\n2.2.2 Standardization of variable names and text fields\nVariable names and geographic text fields were cleaned to ensure consistency across administrative units.\n\n\nCode\ncombined_hmis &lt;- combined_hmis |&gt;\n  janitor::clean_names() |&gt;\n  mutate(\n    region = gsub(\"Region\", \"\", region),\n    region = gsub(\"region\", \"\", region),\n    region = gsub(\"City Administration\", \"\", region),\n    region = gsub(\"al Health Bureau\", \"\", region),\n    region = gsub(\"Ethiopian\", \"\", region),\n    region = gsub(\"Ethiopia\", \"\", region),\n    region = gsub(\"  \", \" \", region),\n    region = str_trim(region)\n  ) |&gt;\n  mutate(\n    zone = gsub(\"Health Office\", \"\", zone),\n    zone = gsub(\"Zone\", \"\", zone),\n    zone = gsub(\"City Administration\", \"\", zone),\n    zone = gsub(\"Zone Health Department\", \"\", zone),\n    zone = gsub(\"Health Department\", \"\", zone),\n    zone = gsub(\"Health department\", \"\", zone),\n    zone = gsub(\"Woreda\", \"\", zone),\n    zone = gsub(\"Zonal\", \"\", zone),\n    woreda = gsub(\"Town Adminstration\", \"\", woreda),\n    woreda = gsub(\"Health Office\", \"\", woreda),\n    woreda = str_squish(woreda)\n  )\n\n\n\n\n2.2.3 Harmonization of data elements\nMalaria-related indicators and reporting variables were standardized into a simplified classification system to enable consistent analysis across ICD-10 and ICD-11 periods.\n\n\nCode\npf_conf &lt;- c(\"B50-196 Malaria (Plasmodium falciparum malaria)\",\n             \"B50-197 Malaria (Plasmodium falciparum malaria with cerebral complications)\",\n             \"B50-198 Malaria (Other severe and complicated Plasmodium falciparum malaria)\",\n             \"B50-199 Malaria (Plasmodium falciparum malaria unspecified)\",\n             \"ESV-ICD11 1F40 - Malaria due to Plasmodium falciparum\",\n             \"ESV-ICD11 1F44 - Other parasitologically confirmed malaria\",\n             \"B50-203 Mixed Malaria (Other parasitologically confirmed malaria)\"\n)\n\npv_conf &lt;- c(\"B50-200 Malaria (Plasmodium vivax malaria)\",\n             \"B50-201 Malaria (Plasmodium vivax malaria with other complications)\",\n             \"B50-202 Malaria (Plasmodium vivax malaria without complication)\",\n             \"ESV-ICD11 1F41 - Malaria due to Plasmodium vivax\"\n)\n\nmixed_conf &lt;- c(\"ESV-ICD11 1F40/1F41 -  Malaria due to Plasmodium falciparum associated with Malaria due to Plasmodium Vivax (Mixed Malaria)\",\n                \"B50-203 Mixed Malaria (Other parasitologically confirmed malaria)\"\n)\n\npm_conf &lt;- c(\"ESV-ICD11 1F42 - Malaria due to Plasmodium malariae\")\n\npo_conf &lt;- c(\"ESV-ICD11 1F43 - Malaria due to Plasmodium ovale\")\n\nclinical_malaria &lt;- c(\"B50-204 Malaria (Unspecified malaria)\",\n                      \"ESV-ICD11 1F45 - Malaria without parasitological confirmation\")\n\ntested &lt;- c(\"MAL_Slides or RDT performed for malaria diagnosis\",\n            \"-2017_Total number of slides or RDT performed for malaria diagnosis\")\n\npositives &lt;- c(\"MAL_Slides or RDT Positive\")\nactual_reports &lt;- c(\"08.1 - Malaria, NTD, NCD | Basic Health post | Monthly - Actual reports\",\n                    \"08.2 - Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly - Actual reports\",\n                    \"08.3 - Malaria, NTD, NCD | Comprehensive HP | Monthly - Actual reports\")\n\nactual_on_time &lt;- c(\"08.1 - Malaria, NTD, NCD | Basic Health post | Monthly - Actual reports on time\",\n                    \"08.2 - Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly - Actual reports on time\",\n                    \"08.3 - Malaria, NTD, NCD | Comprehensive HP | Monthly - Actual reports on time\")\n\nexpected &lt;- c(\"08.1 - Malaria, NTD, NCD | Basic Health post | Monthly - Expected reports\",\n              \"08.2 - Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly - Expected reports\",\n              \"08.3 - Malaria, NTD, NCD | Comprehensive HP | Monthly - Expected reports\")\n\n\n\n\n2.2.4 Standardization of data elements\nAll indicators were standardized into simplified categories for analysis.\n\n\nCode\ncombined_hmis &lt;- combined_hmis |&gt;\n  mutate(\n    data_type = case_when(\n      data_type %in% pf_conf ~ \"pf_conf\",\n      data_type %in% pv_conf ~ \"pv_conf\",\n      data_type %in% positives ~ \"positives\",\n      data_type %in% tested ~ \"tested\",\n      data_type %in% clinical_malaria ~ \"clinical\",\n      data_type %in% mixed_conf ~ \"mixed_conf\",\n      data_type %in% po_conf ~ \"po_conf\",\n      data_type %in% pm_conf ~ \"pm_conf\",\n      data_type %in% actual_reports ~ \"actual_reports\",\n      data_type %in% actual_on_time ~ \"actual_reports_ontime\",\n      data_type %in% expected ~ \"expected_reports\",\n      TRUE ~ data_type\n    )\n  )\n\n\n\n\n2.2.5 Temporal standardization (Ethiopian to Gregorian calendar)\nThe period variable was parsed to extract Ethiopian calendar components and to derive corresponding Gregorian calendar dates. This was done to enable flexible time-series analysis while retaining the original Ethiopian calendar format for reference and reporting consistency.\nBoth calendar systems were retained in the final dataset to support different analytical and reporting needs.\n\n\nCode\neth_months &lt;- c(\"Meskerem\",\"Tikemet\",\"Hidar\",\"Tahesas\",\n                \"Tir\",\"Yekatit\",\"Megabit\",\"Miazia\",\n                \"Ginbot\",\"Sene\",\"Hamle\",\"Nehase\")\n\ngreg_months &lt;- c(9,10,11,12,1,2,3,4,5,6,7,8)\nmonth_map &lt;- setNames(1:12, eth_months)\n\ncombined_hmis &lt;- combined_hmis %&gt;%\n  mutate(\n    eth_month = str_extract(period, \"^[^ ]+\"),\n    eth_year  = as.integer(str_extract(period, \"\\\\d+$\")),\n    eth_month_num = month_map[eth_month],\n    greg_year = if_else(eth_month_num &lt;= 4, eth_year + 7, eth_year + 8),\n    greg_month = greg_months[eth_month_num],\n    greg_date = make_date(greg_year, greg_month, 1)\n  ) |&gt;\n  mutate(\n    greg_month = month(greg_date, label = TRUE),\n    greg_year = year(greg_date),\n    month_year = paste(greg_month, \"-\", greg_year)\n  ) |&gt;\n  select(\n    region, zone, woreda,\n    eth_month, eth_year,\n    greg_date, greg_month, greg_year, month_year,\n    facility_type, department, outcome, data_type, value\n  )\n\n\nThe dataset was saved after general cleaning and harmonization for use in subsequent steps, including geographic cleaning and downstream analysis.\n\n\nCode\nsaveRDS(\n  combined_hmis,\n  \"data/processed/april 2026/apr_2026_hmis_general_cleaning_completed.rds\"\n)"
+  },
+  {
+    "objectID": "dashboard/index.html#geographic-name-cleaning",
+    "href": "dashboard/index.html#geographic-name-cleaning",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "2.3 Geographic name Cleaning",
+    "text": "2.3 Geographic name Cleaning\nFollowing general data cleaning and harmonization, geographic variables were further standardized to ensure alignment between HMIS administrative unit names and the official Ethiopian administrative boundary reference.\nGeographic cleaning was performed separately for each administrative level (region, zone, and woreda) using a standardized cleaning function developed by the PATH/MACEPA data analytics team. This function was used to harmonize geographic identifiers across datasets and align them with the reference administrative structure.\nThis step was implemented prior to indicator generation and visualization and was applied sequentially across all three administrative levels.\nManagement of unmatched geographic names\nThe geographic cleaning functions compare HMIS administrative unit names against the official administrative boundary reference dataset and the corresponding preprocessed correction files. In cases where unmatched names are identified, the unmatched records are exported for manual review.\nThese records are then assessed and mapped to the appropriate administrative unit names. The resulting corrections are added to the relevant preprocessing file (e.g., region, zone, or woreda correction file).\nOnce the correction file has been updated, the cleaning function can be rerun to apply the new mappings automatically. This process creates a growing repository of validated name corrections, reducing manual effort in future dashboard updates and improving consistency across reporting periods.\n\n2.3.1 Region-level geographic cleaning\nRegion-level geographic cleaning was performed on the dataset resulting from general cleaning and harmonization. The objective was to standardize region names to match the official Ethiopian administrative reference.\nThis step ensured that all region identifiers in the HMIS dataset were consistent with the official administrative boundary definitions derived from the national shapefile reference.\nInputs to the region cleaning process\nThree inputs were used in the region-level cleaning procedure:\n\nHMIS dataset (input data):\nThe output from general cleaning and harmonization\n(apr_2026_hmis_general_cleaning_completed.rds)\nPreprocessed region name corrections:\nA manually prepared mapping file containing inconsistent region names and their corresponding corrected values\n(region_names_corrected.csv)\nReference region names:\nofficial administrative boundary reference dataset\n(eth-admin3-v1082-clean-id.rds)\n\nRegion cleaning process\nRegion cleaning was performed using a standardized function developed by the PATH/MACEPA data analytics team. This function applies predefined matching logic, correction mappings, and reference validation to align region names with the official administrative structure.\n\n\nCode\n# libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(janitor)\n\n# sourcing the geographic cleaning function\nsource(\"functions/geog_cleaning_accessories.R\")\n\n# paths for the files needed \nref_path &lt;- \"data/eth-admin3-v1082-clean-id.rds\"\ndat_path &lt;- \"data/processed/april 2026/apr_2026_hmis_general_cleaning_completed.rds\"\npre_path &lt;- \"data/preprocessed/region_names_corrected.csv\"\nout_path &lt;- \"data/processed/april 2026/apr_2026_hmis_region_cleaning_completed.rds\"\n\n# applying region cleaning function\nrclean &lt;- region_clean(\n  dat_path = dat_path,\n  pre_path = pre_path,\n  ref_path = ref_path,\n  out_path = out_path\n)\n\n\n\nOutput of region cleaning\n\nThe output of this step is a region-standardized HMIS dataset in which all region names are aligned with the official administrative reference.\nThis dataset serves as the input for subsequent zone-level geographic cleaning.\n\n\n2.3.2 Zone-level geographic cleaning\nFollowing region name standardization, zone names were cleaned and standardized to ensure alignment with the official administrative boundary reference dataset used in the dashboard.\nThis step was performed after region cleaning because zone matching relies on a consistent regional structure.\nInputs to the zone cleaning process\nThree inputs were used in the zone-level cleaning procedure:\n\nHMIS dataset (input data):\nOutput from the region cleaning step\n(apr_2026_hmis_region_cleaning_completed.rds)\nPreprocessed zone name corrections:\nA manually prepared mapping file containing inconsistent zone names and their corresponding corrected values\n(zone_names_corrected.csv)\nReference administrative boundary dataset:\nOfficial administrative names used as the reference for geographic standardization\n(eth-admin3-v1082-clean-id.rds)\n\nZone cleaning process\nZone cleaning was performed using the standardized function developed by the PATH/MACEPA data analytics team. The function applies predefined correction mappings and reference matching procedures to align zone names with the official administrative hierarchy.\n\n\nCode\n# libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(janitor)\n\n# sourcing the geographic cleaning function\nsource(\"functions/geog_cleaning_accessories.R\")\n\n# path for the reference administrative boundary dataset\nref_path &lt;- \"data/eth-admin3-v1082-clean-id.rds\"\n\n# path for the input dataset\ndat_path &lt;- \"data/processed/april 2026/apr_2026_hmis_region_cleaning_completed.rds\"\n\n# path for preprocessed zone corrections\npre_path &lt;- \"data/preprocessed/zone_names_corrected.csv\"\n\n# path for the output dataset\nout_path &lt;- \"data/processed/april 2026/apr_2026_hmis_zone_cleaning_completed.rds\"\n\n# clean zone names\nzclean &lt;- zone_clean(\n  dat_path,\n  pre_path,\n  ref_path,\n  out_path\n)\n\n\n\n\n2.3.3 Woreda-level geographic cleaning\nFollowing zone-level standardization, woreda names were cleaned and standardized to ensure alignment with the official administrative boundary reference.\nThis step was performed after region and zone cleaning because woreda matching relies on a consistent administrative hierarchy. Standardizing woreda names ensures that HMIS records can be accurately linked to the corresponding administrative boundaries used for analysis and visualization.\nInputs to the woreda cleaning process\nThree inputs were used in the woreda-level cleaning procedure:\n\nHMIS dataset (input data):\nOutput from the zone cleaning step\n(apr_2026_hmis_zone_cleaning_completed.rds)\nPreprocessed woreda name corrections:\nA cumulative correction file containing previously validated mappings between unmatched HMIS woreda names and the corresponding official administrative names\n(woreda_names_corrected.csv)\nReference administrative boundary dataset:\nOfficial administrative names used as the reference for geographic standardization\n(eth-admin3-v1082-clean-id.rds)\n\nWoreda cleaning process\nWoreda cleaning was performed using the same standardized function developed by the PATH/MACEPA team. The function applies predefined correction mappings and reference matching procedures to align woreda names with the official administrative hierarchy.\n\n\nCode\n# libraries \nlibrary(tidyverse) \nlibrary(lubridate) \nlibrary(janitor)\n\n# sourcing the geographic cleaning function\nsource(\"functions/geog_cleaning_accessories.R\")\n\n# path for the reference administrative boundary dataset\nref_path &lt;- \"data/eth-admin3-v1082-clean-id.rds\"\n\n# path for the input dataset\ndat_path &lt;- \"data/processed/april 2026/apr_2026_hmis_zone_cleaning_completed.rds\"\n\n# path for preprocessed woreda corrections\npre_path &lt;- \"data/preprocessed/woreda_names_corrected.csv\"\n\n# path for the output dataset\nout_path &lt;- \"data/processed/april 2026/apr_2026_hmis_woreda_cleaning_completed.rds\"\n\n# clean woreda names\nwclean &lt;- woreda_clean( dat_path, pre_path, ref_path, out_path )\n\n\nIntegration of administrative identifiers\nAfter woreda names were standardized, the cleaned HMIS dataset was linked to the administrative boundary reference dataset to incorporate the unique woreda identifier (id_1082).\nThe id_1082 variable is a standardized administrative code assigned to each woreda in the national administrative boundary dataset. Incorporating this identifier provides a stable geographic reference that is not affected by spelling variations or naming inconsistencies.\nThe identifier is used throughout the dashboard workflow for geographic aggregation, linkage with auxiliary datasets, and spatial visualization.\n\n\nCode\n# read cleaned HMIS data\nclean_woredas &lt;- readRDS(out_path) |&gt;\n  select(\n    -region_old,\n    -zone_old,\n    -woreda_old,\n    -non_zero_ever,\n    -matched\n  )\n\n# read reference administrative boundary dataset\nsf &lt;- readRDS(ref_path) |&gt;\n  sf::st_drop_geometry() |&gt;\n  select(-region_old, -pop_2022)\n\n# join administrative identifier\nfinal_out &lt;- clean_woredas |&gt;\n  left_join(\n    sf,\n    by = c(\"region\", \"zone\", \"woreda\")\n  )\n\n# save final geographic-cleaned dataset\nsaveRDS(final_out, out_path)\n\n\nOutput of woreda cleaning\nThe output of this step is a dataset with standardized region, zone, and woreda names aligned with the official administrative boundary reference dataset.\nThis dataset serves as the geographic-cleaned HMIS dataset and provides the basis for subsequent aggregation, indicator calculation, visualization, and dashboard development."
+  },
+  {
+    "objectID": "dashboard/index.html#integration-with-the-historical-hmis-dataset",
+    "href": "dashboard/index.html#integration-with-the-historical-hmis-dataset",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "3.1 Integration with the historical HMIS dataset",
+    "text": "3.1 Integration with the historical HMIS dataset\nThe dashboard is designed to display malaria trends over multiple years. Therefore, each newly processed monthly HMIS dataset must be integrated with the existing historical HMIS dataset maintained for the dashboard.\nAt this stage, the processed HMIS dataset for the current reporting period was appended to the historical HMIS dataset. This process creates an updated master dataset containing all available HMIS records required for dashboard analysis and visualization.\n\n\nCode\n# libraries\nlibrary(tidyverse)\nlibrary(lubridate)\n\n# read historical HMIS dataset\nhmis_large &lt;- readRDS(\n  \"data/processed/jan 2020-mar 2026/clean_hmis_2020_2026.rds\"\n)\n\n# read newly processed HMIS dataset\nhmis_apr_2026 &lt;- readRDS(\n  \"data/processed/april 2026/clean_apr_2026.rds\"\n)\n\n# append new data to historical dataset\nbinded_hmis &lt;- bind_rows(\n  hmis_large,\n  hmis_apr_2026\n)\n\n# save updated master dataset\nsaveRDS(\n  binded_hmis,\n  \"data/processed/april 2026/upto_apr_2026_hmis_for_app.rds\"\n)\n\n\nOutput of dataset integration\nThe output of this step is an updated master HMIS dataset containing both the historical records and the newly processed reporting period.\nThis dataset serves as the source dataset for subsequent aggregation and indicator calculation steps used in the dashboard."
+  },
+  {
+    "objectID": "dashboard/index.html#creation-of-lookup-tables-and-analytical-dataset",
+    "href": "dashboard/index.html#creation-of-lookup-tables-and-analytical-dataset",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "3.2 Creation of lookup tables and analytical dataset",
+    "text": "3.2 Creation of lookup tables and analytical dataset\nFollowing geographic cleaning, a set of supporting lookup tables were prepared to facilitate dashboard functionality and indicator calculation.\nThe dashboard uses two types of lookup tables:\n\nStatic lookup tables, which are created once and reused across routine dashboard updates. These include the population lookup and time lookup tables.\nDynamic lookup tables, which are generated from the latest HMIS data and therefore require updating whenever a new HMIS extraction is processed. This includes the geographic lookup table.\n\nThese lookup tables are subsequently used to enrich the cleaned HMIS dataset and create the final analysis-ready dataset used throughout the dashboard.\nGeographic lookup table\nA geographic lookup table was generated from the geographically cleaned HMIS dataset. The lookup contains unique administrative identifiers and names for each region, zone, and woreda represented in the data.\nUnlike the population and time lookup tables, the geographic lookup is derived directly from the HMIS dataset and should be regenerated whenever a new HMIS extraction is processed.\n\n\nCode\n#libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(sf)\n\n# reading the cleaned hmis data\nhmis &lt;- readRDS(\"data/processed/april 2026/april_mar_2026_hmis_woreda_cleaning_completed.rds\")\n\n# read sf\nsf &lt;- readRDS(\"data/eth-admin3-v1082-clean-id.rds\")|&gt;\n  sf::st_drop_geometry()\n\n\n# prepare a geo look up\ngeo_lookup &lt;- hmis %&gt;%\n  distinct(\n    id_1082,\n    region,\n    zone,\n    woreda\n  ) %&gt;%\n  arrange(region, zone, woreda)\n\n# save the geo look up\nsaveRDS(geo_lookup, \"data/processed/april 2026/geo_lookup.rds\")\n\n\nPopulation lookup table\nA population lookup table containing annual woreda-level population estimates was prepared for use in population-based indicator calculations.\nThis lookup is maintained separately from the HMIS data and can be reused across routine dashboard updates.\n\n\nCode\n# create a population lookup\npop_lookup &lt;- read_csv(\"data/eth-admin3-v1082-clean-id_with_pop_2030.csv\")|&gt;\n  filter(year %in% c(2020:2026))\n\n# save population lookup (saved once, no need to repeat)\n#saveRDS(pop_lookup, \"data/processed/population_lookup.rds\")\n\n\nTime lookup table\nA time lookup table was created to provide standardized Gregorian and Ethiopian Fiscal Year (EFY) date variables used throughout the dashboard.\nThis lookup is created independently of the HMIS data and can be reused across routine dashboard updates. It only requires modification if the dashboard period is extended beyond the range covered by the existing lookup table.\n\n\nCode\n# creating time lookup\ntime_lookup &lt;- tibble(\n  greg_date = seq(\n    from = as.Date(\"2020-01-01\"),\n    to = as.Date(\"2030-12-01\"),\n    by = \"month\"\n  )\n)\n\n# create gregorian variable\ntime_lookup &lt;- time_lookup %&gt;%\n  mutate(\n    greg_year = year(greg_date),\n    \n    greg_month = month(\n      greg_date,\n      label = TRUE,\n      abbr = TRUE\n    ),\n    # character type gregorian year for dashboard UI\n   greg_year_ui = factor(\n        greg_year,\n        levels = 2020:2026\n      ),\n    \n    greg_month_num = month(greg_date),\n    \n    month_year = format(\n      greg_date,\n      \"%b-%Y\"\n    )\n  )\n\n# create EFY variable\ntime_lookup &lt;- time_lookup %&gt;%\n  mutate(\n    \n    efy = ifelse(\n      greg_month_num &gt;= 7,\n      greg_year - 7,\n      greg_year - 8\n    ),\n    \n    efy_month_num = case_when(\n      greg_month_num &gt;= 7 ~ greg_month_num - 6,\n      TRUE ~ greg_month_num + 6\n    )\n  )\n\n\n# creating EFY display label\ntime_lookup &lt;- time_lookup %&gt;%\n  mutate(\n    efy_time = month_year\n  )\n\n# convert to factor\ntime_lookup &lt;- time_lookup %&gt;%\n  mutate(\n    \n    greg_month = factor(\n      greg_month,\n      levels = c(\n        \"Jan\",\"Feb\",\"Mar\",\"Apr\",\n        \"May\",\"Jun\",\"Jul\",\"Aug\",\n        \"Sep\",\"Oct\",\"Nov\",\"Dec\"\n      )\n    ),\n    \n    month_year = factor(\n      month_year,\n      levels = format(\n        greg_date,\n        \"%b-%Y\"\n      )\n    )\n  )\n\n# save the time lookup (saved once, no need to repeat)\n#saveRDS(time_lookup,\"data/processed/time_lookup.rds\")"
+  },
+  {
+    "objectID": "dashboard/index.html#temporal-enrichment-of-the-hmis-dataset",
+    "href": "dashboard/index.html#temporal-enrichment-of-the-hmis-dataset",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "3.3 Temporal enrichment of the HMIS dataset",
+    "text": "3.3 Temporal enrichment of the HMIS dataset\nAfter creating the time lookup table, it was joined to the geographically cleaned and integrated HMIS dataset using the Gregorian date variable (greg_date).\nThis step enriches the HMIS data with additional time-related variables required for dashboard filtering, aggregation, and visualization. These include Gregorian year and month variables, Ethiopian Fiscal Year (EFY) variables, and user-interface-friendly date fields.\nBy storing these variables in the HMIS dataset, time transformations do not need to be recalculated repeatedly during dashboard execution, improving efficiency and ensuring consistent date handling throughout the application.\n\n\nCode\n# join time lookup to the geography cleaned hmis\nhmis &lt;- hmis %&gt;%\n  left_join(\n    time_lookup,\n    by = \"greg_date\"\n  )\n\n# selecting the columns needed for subsequent processing\nhmis &lt;- hmis |&gt;\n  select(\n    id_1082,\n    region,\n    zone,\n    woreda,\n    greg_date,\n    greg_year = greg_year.y,\n    greg_month = greg_month.y,\n    greg_month_num,\n    month_year = month_year.y,\n    efy,\n    greg_year_ui,\n    efy_month_num,\n    efy_time,\n    facility_type,\n    department,\n    outcome,\n    data_type,\n    value\n  )\n\n\nOutput of lookup table creation and temporal enrichment\nThe output of this step is a geographically standardized and temporally enriched HMIS dataset.\nThe dataset contains harmonized malaria indicators together with standardized administrative identifiers and Gregorian/Ethiopian Fiscal Year (EFY) time variables required for subsequent processing.\nThis dataset serves as the input for the aggregation step."
+  },
+  {
+    "objectID": "dashboard/index.html#aggregation",
+    "href": "dashboard/index.html#aggregation",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "3.4 Aggregation",
+    "text": "3.4 Aggregation\nTo improve dashboard performance and reduce computational load in the Shiny application, the integrated HMIS dataset was aggregated prior to deployment.\nThis step reduces data redundancy by summarizing records at the lowest analytical level required for visualization while preserving all key analytical dimensions.\n\n\nCode\n# libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(sf)\n\n# read integrated HMIS dataset\nhmis &lt;- readRDS(\n  \"data/processed/april 2026/upto_apr_2026_hmis_for_app.rds\"\n)\n\n# aggregate HMIS data for dashboard efficiency\nhmis_dashboard &lt;- hmis |&gt;\n  group_by(\n    id_1082,\n    region,\n    zone,\n    woreda,\n    facility_type,\n    greg_date,\n    department,\n    outcome,\n    data_type\n  ) |&gt;\n  summarise(\n    value = sum(value, na.rm = TRUE),\n    .groups = \"drop\"\n  )\n\n\nOutput of aggregation\nThe output of this step is a reduced and performance-optimized dataset (hmis_dashboard) in which duplicate records have been aggregated while preserving all analytical dimensions required for dashboard visualizations.\nThis improves dashboard responsiveness by reducing memory usage and computational overhead during filtering and rendering."
+  },
+  {
+    "objectID": "dashboard/index.html#application-initialization-and-data-loading",
+    "href": "dashboard/index.html#application-initialization-and-data-loading",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "4.1 Application initialization and data loading",
+    "text": "4.1 Application initialization and data loading\nBefore launching the user interface and server components, the application loads all required datasets, lookup tables, geographic boundary files, and supporting objects.\nThis initialization step ensures that all data required for filtering, indicator calculation, and visualization are available when the dashboard starts.\nThe following resources are loaded:\n\nDashboard-ready HMIS dataset\nPopulation lookup table\nGeographic lookup table\nAdministrative boundary shapefile\n\nIn addition, geographic layers are prepared for woreda-, zone-, and region-level mapping, and application-wide settings such as date ordering and visual themes are initialized."
+  },
+  {
+    "objectID": "dashboard/index.html#dashboard-structure-and-navigation",
+    "href": "dashboard/index.html#dashboard-structure-and-navigation",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "4.2 Dashboard structure and navigation",
+    "text": "4.2 Dashboard structure and navigation\nThe dashboard was developed as a web-based interactive application using R Shiny. The application is organized into two main pages designed to support both user orientation and data exploration.\nOverview page\nThe Overview page serves as the entry point to the dashboard and provides background information to help users understand the purpose, scope, and interpretation of the dashboard outputs.\nThe page includes the following sections:\n\nAbout the dashboard\nData sources\nKey indicators\nMethodological notes and\nDashboard user guide\n\nThis page is intended to provide contextual information and support consistent interpretation of dashboard outputs.\nDashboard page\nThe Dashboard page contains all interactive visualizations and analytical outputs. It is organized into a sidebar panel containing user-defined filters and a main panel displaying a map, key performance indicators (KPIs), and charts.\nSidebar filters\nThe sidebar contains three groups of filters:\nGeographic filters\n\nRegion\nZone\nWoreda\n\nThese filters allow users to view data at different administrative levels and geographic locations.\nTime filters\n\nGregorian year\nEthiopian Fiscal Year (EFY)\nMonth\n\nThese filters enable temporal analysis of malaria indicators.\nReporting filters\n\nFacility type\n\nThe facility type filter is used only for reporting completeness and timeliness indicators. All other filters apply across all dashboard components.\nDashboard outputs\nThe main dashboard panel is organized into four rows of analytical outputs.\nRow 1\n\nGeographic map\nKey Performance Indicators (KPIs)\n\nRow 2\n\nMalaria testing and Test Positivity Rate (TPR)\nSpecies proportion\n\nThe testing and TPR visualization combines malaria testing volume as a bar chart with TPR displayed as a line on a secondary axis.\nRow 3\n\nParasite incidence per 1,000 population\nMalaria mortality rate per 100,000 population at risk\n\nRow 4\n\nReporting completeness\nReporting timeliness\n\nVisualization modes\nAll dashboard charts include a display toggle that allows users to switch between:\n\nAggregate view and\nMonthly trend view\n\nThe aggregate view summarizes indicator values over the selected period and geography, while the monthly view displays temporal trends across individual months."
+  },
+  {
+    "objectID": "dashboard/index.html#malaria-cases",
+    "href": "dashboard/index.html#malaria-cases",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.1 Malaria Cases",
+    "text": "5.1 Malaria Cases\nConfirmed Malaria Cases\nConfirmed malaria cases include all laboratory-confirmed malaria infections reported through HMIS, regardless of species.\nClinical Malaria Cases\nClinical malaria cases refer to malaria diagnoses made without parasitological confirmation.\nAll Malaria Cases\nAll malaria cases represent the total malaria burden reported through HMIS and are calculated as:\nAll Cases = Confirmed Cases + Clinical Cases"
+  },
+  {
+    "objectID": "dashboard/index.html#malaria-deaths",
+    "href": "dashboard/index.html#malaria-deaths",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.2 Malaria Deaths",
+    "text": "5.2 Malaria Deaths\nMalaria deaths are defined as inpatient malaria-related deaths reported through the HMIS disease surveillance system."
+  },
+  {
+    "objectID": "dashboard/index.html#test-positivity-rate-tpr",
+    "href": "dashboard/index.html#test-positivity-rate-tpr",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.3 Test Positivity Rate (TPR)",
+    "text": "5.3 Test Positivity Rate (TPR)\nThe Test Positivity Rate (TPR) measures the proportion of malaria tests that yield a positive result.\nTPR = Positive Malaria Tests/Total malaria test performed x 100\nWhere:\n- Positive malaria tests = laboratory-confirmed positive malaria tests\n- Total malaria tests performed = all malaria diagnostic tests (microscopy and/or RDT)"
+  },
+  {
+    "objectID": "dashboard/index.html#species-distribution",
+    "href": "dashboard/index.html#species-distribution",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.4 Species Distribution",
+    "text": "5.4 Species Distribution\nSpecies proportions describe the relative contribution of each malaria species among confirmed malaria cases.\nPlasmodium falciparum Proportion = Pf cases/Total confirmed cases*100\nPlasmodium vivax Proportion = Pv cases/Total confirmed cases*100\nMixed malaria (pf/pv) Proportion = Mixed cases/Total confirmed cases*100\nTotal Confirmed Cases = Pf + Pv + Mixed + P. malariae + P. ovale"
+  },
+  {
+    "objectID": "dashboard/index.html#annual-parasite-incidence-api",
+    "href": "dashboard/index.html#annual-parasite-incidence-api",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.5 Annual Parasite Incidence (API)",
+    "text": "5.5 Annual Parasite Incidence (API)\nThe dashboard uses adjusted malaria cases to account for clinically diagnosed malaria cases.\nAdjusted malaria cases are calculated as:\nAdjusted Cases = Confirmed Cases + (TPR × Clinical Cases)\nAnnual Parasite Incidence (API) is then calculated as:\nAPI = Adjusted Cases/ Total Population × 1000 and expressed as cases per 1,000 population."
+  },
+  {
+    "objectID": "dashboard/index.html#annualized-monthly-parasite-incidence",
+    "href": "dashboard/index.html#annualized-monthly-parasite-incidence",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.6 Annualized Monthly Parasite Incidence",
+    "text": "5.6 Annualized Monthly Parasite Incidence\nFor monthly dashboard displays, incidence is annualized to facilitate comparison with annual incidence targets.\nAnnualized monthly incidence = (Adjusted cases X n/12)/Total population X 1000\nWhere:\nn = annualization factor used to project the observed reporting period to a 12-month equivalent"
+  },
+  {
+    "objectID": "dashboard/index.html#malaria-mortality-rate",
+    "href": "dashboard/index.html#malaria-mortality-rate",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.7 Malaria Mortality Rate",
+    "text": "5.7 Malaria Mortality Rate\nThe malaria mortality rate is calculated using the population at risk as the denominator.\nIn accordance with the National Malaria Strategic Plan,the population at risk is defined as:  Population at Risk = Total Population × 69%\nThe mortality rate is calculated as:\nMotality_rate = In-patient malaria deaths/population at risk X 100,000 and expressed as deaths per 100,000 population at risk."
+  },
+  {
+    "objectID": "dashboard/index.html#annualized-monthly-mortality-rate",
+    "href": "dashboard/index.html#annualized-monthly-mortality-rate",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.8 Annualized Monthly Mortality Rate",
+    "text": "5.8 Annualized Monthly Mortality Rate\nFor monthly dashboard displays, mortality is annualized using the same approach applied to incidence.\nAnnualized monthly mortality = (inpatient malaria deaths X n/12)/population at risk X 100,000\nWhere:\nn = annualization factor used to project the observed reporting period to a 12-month equivalent"
+  },
+  {
+    "objectID": "dashboard/index.html#reporting-completeness",
+    "href": "dashboard/index.html#reporting-completeness",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.9 Reporting Completeness",
+    "text": "5.9 Reporting Completeness\nReporting completeness measures the proportion of expected reports that were submitted.\nReporting completeness = Actual reports/Expected reports X 100"
+  },
+  {
+    "objectID": "dashboard/index.html#reporting-timeliness",
+    "href": "dashboard/index.html#reporting-timeliness",
+    "title": "National Malaria Elimination Program Dashboard: Technical Documentation and User Guide",
+    "section": "5.10 Reporting Timeliness",
+    "text": "5.10 Reporting Timeliness\nReporting timeliness measures the proportion of expected reports that were submitted on time.\nReporting timeliness = Reports received on time/Expected reports X 100\nNotes on Reporting Indicators\nReporting completeness and reporting timeliness are assessed using only the HMIS service reporting dataset. Both the numerator and denominator values are system-generated by DHIS2 and are not calculated manually within the dashboard.\nThese indicators assess reporting performance rather than malaria burden and are displayed separately from surveillance and service delivery indicators."
+  },
+  {
+    "objectID": "bulletin/index.html",
+    "href": "bulletin/index.html",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "",
+    "text": "This document serves as a workflow, sustainability, and handover guide for the production of the National Malaria Elimination Program (NMEP) Monthly Bulletin. Its purpose is to ensure continuity of bulletin production and enable future analysts to independently generate subsequent editions using a standardized and reproducible process.\nThe examples presented throughout this guide are based on the April 2026 bulletin production cycle and are provided solely for illustrative purposes. For future bulletin cycles, all month-specific references, file names, folder names, filtering criteria, plot labels, figure titles, and output file names should be updated to reflect the reporting month under analysis.\nFor example:\n\nApril 2026 bulletin: Apr-2026 compared with Apr-2025\nMay 2026 bulletin: May-2026 compared with May-2025\nJune 2026 bulletin: Jun-2026 compared with Jun-2025\n\nPrior to running the workflow each month, users should verify that:\n\nThe most recent HMIS dataset has been downloaded, and cleaned.\nThe reporting month and corresponding comparison month from the previous year have been correctly specified.\nOutput folders and file naming conventions correspond to the reporting period.\nFigure titles, labels, and captions accurately reflect the reporting month.\nKPI calculations and visualizations are generated using the correct month-year combination.\n\nFollowing these steps will help ensure consistency, accuracy, and comparability across bulletin editions over time."
+  },
+  {
+    "objectID": "bulletin/index.html#page-1-epidemiological-summary",
+    "href": "bulletin/index.html#page-1-epidemiological-summary",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Page 1: Epidemiological Summary",
+    "text": "Page 1: Epidemiological Summary\nPage 1 presents a consolidated overview of malaria epidemiological trends and key findings for the reporting month. It includes:\n\nExecutive summary of key HMIS findings and programmatic achievements\nKey performance indicators (KPIs)\nFigure 1: Tests, positives, and test positivity rate (TPR) comparison\nFigure 2: Confirmed malaria cases by region\nFigure 3: Service versus disease data comparison\nFigure 4: Malaria species proportion comparison\n\nThis section is designed to provide a concise yet comprehensive snapshot of malaria trends and program performance, enabling rapid interpretation of the current situation."
+  },
+  {
+    "objectID": "bulletin/index.html#page-2-programmatic-updates",
+    "href": "bulletin/index.html#page-2-programmatic-updates",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Page 2: Programmatic Updates",
+    "text": "Page 2: Programmatic Updates\nPage 2 highlights key operational and programmatic activities conducted during the reporting month. It includes:\n\nMajor programmatic achievements\nKey operational and implementation challenges\nSpotlight story highlighting a notable activity or success\nData source information, including the reporting period and date of data extraction\n\nThis section complements the epidemiological summary by providing contextual information on program implementation and field-level activities."
+  },
+  {
+    "objectID": "bulletin/index.html#quality-assurance",
+    "href": "bulletin/index.html#quality-assurance",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Quality Assurance",
+    "text": "Quality Assurance\nPrior to publication, the following quality assurance checks are conducted to ensure accuracy, consistency, and completeness of the bulletin:\n\nVerification that the correct reporting month and comparison period are used throughout the analysis\nConfirmation that all KPI values are consistent with HMIS source data\nValidation of mortality figures and other key indicators\nReview of all figures, including titles, labels, and annotations for accuracy and clarity\nVerification that the executive summary accurately reflects the analytical outputs\nConfirmation that the data extraction date and source are clearly documented\n\nThese checks ensure the reliability of the bulletin and maintain consistency across monthly reporting cycles."
+  },
+  {
+    "objectID": "bulletin/index.html#step-1-setup",
+    "href": "bulletin/index.html#step-1-setup",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 1: Setup",
+    "text": "Step 1: Setup\n\nUpdate month parameters (e.g., Apr → May)\nCreate monthly working directory\nLoad latest cleaned HMIS dataset"
+  },
+  {
+    "objectID": "bulletin/index.html#step-2-data-preparation",
+    "href": "bulletin/index.html#step-2-data-preparation",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 2: Data Preparation",
+    "text": "Step 2: Data Preparation\n\nFilter reporting month and previous year\nSave filtered dataset"
+  },
+  {
+    "objectID": "bulletin/index.html#step-3-analysis",
+    "href": "bulletin/index.html#step-3-analysis",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 3: Analysis",
+    "text": "Step 3: Analysis\n\nGenerate KPIs\nCompute regional summaries\nGenerate service vs disease comparison\nCompute species distribution"
+  },
+  {
+    "objectID": "bulletin/index.html#step-4-visualization",
+    "href": "bulletin/index.html#step-4-visualization",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 4: Visualization",
+    "text": "Step 4: Visualization\n\nGenerate all standard figures\nExport figures as SVG"
+  },
+  {
+    "objectID": "bulletin/index.html#step-5-bulletin-assembly",
+    "href": "bulletin/index.html#step-5-bulletin-assembly",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 5: Bulletin Assembly",
+    "text": "Step 5: Bulletin Assembly\n\nOpen Canva template\nDuplicate for current month\nReplace figures and KPIs\nUpdate executive summary"
+  },
+  {
+    "objectID": "bulletin/index.html#step-6-quality-assurance",
+    "href": "bulletin/index.html#step-6-quality-assurance",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 6: Quality Assurance",
+    "text": "Step 6: Quality Assurance\n\nValidate all outputs\nCross-check with HMIS totals\nReview labels and consistency"
+  },
+  {
+    "objectID": "bulletin/index.html#step-7-publication",
+    "href": "bulletin/index.html#step-7-publication",
+    "title": "NMEP Monthly Bulletin Workflow",
+    "section": "Step 7: Publication",
+    "text": "Step 7: Publication\n\nExport final bulletin as PDF\nSave in monthly archive folder\nShare with stakeholders"
+  },
+  {
+    "objectID": "index.html#this-portal-provides-standardized-documentation-for-ethiopias-nmep-data-and-analytics-workflows-prepared-as-part-of-the-macepa-data-analytics-program-fellowship-program.",
+    "href": "index.html#this-portal-provides-standardized-documentation-for-ethiopias-nmep-data-and-analytics-workflows-prepared-as-part-of-the-macepa-data-analytics-program-fellowship-program.",
+    "title": "Ethiopia’s NMEP Data & Analytics Documentation Portal",
+    "section": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics program fellowship program.",
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics program fellowship program.\nSelect documentations below:-\n\nHMIS-driven Dashboard Guide\nInteractive dashboard workflow documentation. Open Module\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Open Module"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Ethiopia’s NMEP Data & Analytics Documentation Portal",
+    "section": "─────────────────────────────",
+    "text": "─────────────────────────────\nSelect documentations below:-\n\nHMIS-driven Dashboard Guide\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
+  },
+  {
+    "objectID": "index.html#this-portal-provides-standardized-documentation-for-ethiopias-nmep-data-and-analytics-workflows-prepared-as-part-of-the-macepa-data-analytics-fellowship-program.",
+    "href": "index.html#this-portal-provides-standardized-documentation-for-ethiopias-nmep-data-and-analytics-workflows-prepared-as-part-of-the-macepa-data-analytics-fellowship-program.",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.",
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\nHMIS-driven Dashboard Guide\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
+  },
+  {
+    "objectID": "index.html#select-documentations-below-",
+    "href": "index.html#select-documentations-below-",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Select documentations below:-",
+    "text": "Select documentations below:-\n\nHMIS-driven Dashboard Guide\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
   }
 ]

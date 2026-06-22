@@ -3,13 +3,16 @@ project:
   output-dir: docs
 
 website:
-  title: "NMEP Data & Analytics Documentation"
+  title: "NMEP Data & Analytics Documentation Portal"
+
   navbar:
     left:
-      - text: Dashboard Guide
+      - text: Home
         href: index.qmd
-      - text: Monthly bulletin guide
-        href: bulletin/NMEP monthly bulletin workflow.qmd
+     # - text: Dashboard Guide
+     #   href: dashboard/index.qmd
+     # - text: Bulletin Workflow
+      #  href: bulletin/index.qmd
 
 format:
   html:
