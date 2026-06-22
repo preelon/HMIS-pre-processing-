@@ -1,0 +1,485 @@
+---
+title: "NMEP Monthly Bulletin Workflow"
+author: "Enku Demssie"
+
+format:
+  html:
+    css: styles.css
+    embed-resources: true
+    toc: true
+    #number-sections: true
+---
+
+# Important Note
+
+This document serves as a workflow, sustainability, and handover guide for the production of the National Malaria Elimination Program (NMEP) Monthly Bulletin. Its purpose is to ensure continuity of bulletin production and enable future analysts to independently generate subsequent editions using a standardized and reproducible process.
+
+The examples presented throughout this guide are based on the April 2026 bulletin production cycle and are provided solely for illustrative purposes. For future bulletin cycles, all month-specific references, file names, folder names, filtering criteria, plot labels, figure titles, and output file names should be updated to reflect the reporting month under analysis.
+
+For example:
+
+- April 2026 bulletin: Apr-2026 compared with Apr-2025
+- May 2026 bulletin: May-2026 compared with May-2025
+- June 2026 bulletin: Jun-2026 compared with Jun-2025
+
+Prior to running the workflow each month, users should verify that:
+
+- The most recent HMIS dataset has been downloaded, and cleaned.
+- The reporting month and corresponding comparison month from the previous year have been correctly specified.
+- Output folders and file naming conventions correspond to the reporting period.
+- Figure titles, labels, and captions accurately reflect the reporting month.
+- KPI calculations and visualizations are generated using the correct month-year combination.
+
+Following these steps will help ensure consistency, accuracy, and comparability across bulletin editions over time.
+
+# Purpose of the Monthly Bulletin
+
+The NMEP Monthly Bulletin provides a concise summary of malaria epidemiological trends and key programmatic updates using data derived from HMIS service and disease surveillance reporting systems. The bulletin is intended to support evidence-based decision-making by informing program managers, Ministry of Health leadership, implementing partners, and other stakeholders about the current malaria situation and notable developments during the reporting period.
+
+The bulletin includes:
+
+- An executive summary highlighting key quantitative findings and programmatic achievements.
+- Key performance indicators (KPIs), including malaria tests conducted, confirmed malaria cases, malaria deaths, and test positivity rate (TPR).
+- Comparative analyses of the reporting month against the corresponding month in the previous year.
+- Major programmatic achievements and activities implemented during the reporting period.
+- Key operational and implementation challenges.
+- A spotlight story highlighting a noteworthy success or experience.
+- Information on data sources and the date of data extraction.
+
+# Data Source
+
+The bulletin is produced using the cleaned HMIS dataset prepared for the NMEP dashboard. This dataset contains the service and disease surveillance indicators required for routine malaria monitoring, trend analysis, and reporting.
+
+The dashboard dataset serves as the primary source of information for all bulletin analyses, KPIs, and visualizations.
+
+# Data Preparation
+
+To streamline bulletin production, the cleaned HMIS dataset is filtered to retain only the data required for the reporting cycle. Specifically, the dataset is restricted to:
+
+- The reporting month.
+- The corresponding month from the previous year.
+
+For example, the April 2026 bulletin utilizes data from:
+
+- Apr-2026 (reporting month)
+- Apr-2025 (comparison month)
+
+The filtered dataset is then saved as a separate file and used for all subsequent analyses and visualizations. This approach reduces processing time, minimizes storage requirements, and simplifies the analytical workflow by eliminating the need to repeatedly load and process the full HMIS dataset during bulletin production.
+
+```{r}
+#library
+library(tidyverse)
+
+
+# 1. reading the large HMIS
+large_hmis <- readRDS("data/processed/Apr_2026_bulletin/upto_apr_2026_hmis_for_app.rds")
+
+# filter the data required for the monthly bulletin
+hmis_Apr_bulletin <- large_hmis |>
+  filter(month_year %in% c("Apr-2025", "Apr-2026"))
+
+# save the above data so that i can delete the original large data and save space
+saveRDS(hmis_Apr_bulletin, "data/processed/Apr_2026_bulletin/apr_2025_2026_hmis.rds")
+```
+
+# Indicator Generation and Visualization
+
+The filtered HMIS dataset is used to derive key indicators and generate visualizations that constitute the primary evidence base for the NMEP Monthly Bulletin. These outputs directly inform the executive summary, KPI section, and graphical components of the bulletin.
+
+For each reporting cycle, indicators are computed for both the reporting month and the corresponding month in the previous year to enable consistent year-on-year comparison.
+
+The following key indicators are extracted:
+
+- Total number of malaria tests conducted
+
+- Total confirmed malaria cases
+
+- Confirmed cases disaggregated by region
+
+- Test Positivity Rate (TPR)
+
+- Malaria-related deaths
+
+- Comparison between service data and disease surveillance data
+
+- Malaria species distribution (Pf, Pv, and mixed infections)
+
+These indicators provide a comprehensive overview of malaria trends and program performance and are used to support interpretation of changes observed in the executive summary and visualizations presented in the bulletin.
+
+```{r}
+#library
+library(tidyverse)
+library(scales)
+
+# read the hmis data
+Apr_hmis_25_26 <- readRDS("data/processed/Apr_2026_bulletin/apr_2025_2026_hmis.rds") 
+
+# checking if I correctly filtered out Apr data
+unique(Apr_hmis_25_26$greg_date) #correct
+
+# 1. Test, positive & TPR in Apr 2025
+Apr_hmis_25_26 |>
+  filter(data_type %in% c("positives", "tested")) |>
+  group_by(data_type, greg_year) |>
+  summarise(value = sum(value, na.rm = T), .groups = "drop") |>
+  pivot_wider(names_from = data_type, values_from = value) |>
+  mutate(tpr= (positives/tested) *100)
+
+# 2. Total deths in the month-year
+Apr_hmis_25_26 |>
+  filter(greg_year == 2025, department == "IPD",
+         outcome == "Mortality") |>
+  summarise(total_death = sum(value, na.rm = T)) 
+
+```
+
+**Figure 1. Tests, Positives and Test Positivity Rate (TPR)**
+
+This visualization compares the total number of malaria tests conducted, confirmed malaria cases, and TPR between the reporting month and the corresponding month in the previous year.
+
+The figure provides a rapid assessment of changes in testing volume, case burden, and transmission intensity over time.
+
+```{r}
+# 3. ploting test, pos and tpr with labels
+# 3.1. preparing a sub data
+Apr_hmis_25_26_plot <- Apr_hmis_25_26 |>
+  filter(data_type %in% c("tested", "positives")) |>
+  group_by(month_year, data_type) |>
+  summarise(total = sum(value, na.rm = TRUE), .groups = "drop") |>
+  pivot_wider(names_from = data_type, values_from = total, values_fill = 0) |>
+  mutate(tpr = (positives / tested) * 100)
+
+# 3.2. changing sub data to long form
+df_long <- Apr_hmis_25_26_plot |>
+  pivot_longer(cols = c(positives, tested),
+               names_to = "data_type", values_to = "count") |>
+  #to make the test bar appear on the left and positive on the left
+  # the below line to be modified every month to accomodate the respective month_year
+  mutate(month_year = factor(month_year, levels = c("Apr-2025", "Apr-2026")),  # preserve x order
+         data_type = factor(data_type, levels = c("tested", "positives"))) # tested RIGHT, positives LEFT)
+
+
+# 3.3. store maximum tested for rescaling
+max_tested <- max(Apr_hmis_25_26_plot$tested, na.rm = TRUE)
+
+# 3.4. test, pos, tpr plot
+df_long |>
+  ggplot(aes(x=month_year, y=count, fill = data_type))+
+  geom_bar(stat = "identity", position = position_dodge(width = 0.7)) +  # clustered bars
+  geom_text(aes(label = scales::comma(count)),
+            position = position_dodge(width = 0.7), vjust = -0.5, size = 4.5, fontface= "bold")+
+  geom_line(data = df_long,
+            aes(x = month_year, y = tpr * max_tested / 100, group = 1),
+            color = "black", linewidth = 2, inherit.aes = FALSE) +
+  geom_point(data = df_long,
+             aes(x = month_year, y = tpr * max_tested / 100),
+             color = "white", size = 3, inherit.aes = FALSE) +
+  scale_fill_manual(values = c("tested" = "#007476", "positives" = "#ff7f50")) +
+  scale_y_continuous(
+    name = "Number of Tests / Positives",
+    labels = scales::comma,
+    sec.axis = sec_axis(~ . * 100 / max_tested, name = "TPR (%)")
+  ) +
+  labs(
+    x = "",
+    fill = "Data",
+    #title = "Malaria Tests, Positives & TPR (Apr 2025 vs Apr 2026)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title = element_text(face = "bold", size = 14),              # x & y axis titles
+    axis.title.y.right = element_text(color = "black", face = "bold"),  # secondary y
+    axis.text = element_text(face = "bold"),               # axis labels
+    axis.text.x = element_text(angle = 45, hjust = 1, face = "bold", size= 15),
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+ggsave("output/apr_2026_bulletin/1.test-pos-tpr-Mar.svg", 
+       width= 10, height = 6) 
+```
+
+**Figure 2. Confirmed Malaria Cases by Region**
+
+This visualization compares the distribution of confirmed malaria cases across regions for the reporting month and the corresponding month in the previous year.
+
+The figure helps identify regions contributing the largest share of the national malaria burden and supports discussion of geographic trends in transmission.
+
+Additional analysis is conducted to:
+
+Rank regions by malaria burden Identify the highest-burden regions Quantify the contribution of top-burden regions to the national caseload.
+
+```{r}
+# 4. Apr 2025 confirmed cases by region col chart
+Apr_hmis_25_26 |>
+  filter(data_type == "positives") |>
+  group_by(region, month_year) |>
+  summarise(total = sum(value, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x =reorder(region, total), y = total, fill = month_year)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.7)) +
+  
+  # Add labels
+  geom_text(aes(label = scales::comma(total)),
+            position = position_dodge(width = 0.7),
+            hjust = -0.2, size = 3.2, fontface = "bold", color= "blue4") +
+  
+  scale_fill_manual(values = c("Apr-2025" = "#007476", "Apr-2026" = "#ff7f50")) +
+  scale_y_continuous(
+    name = "case count",
+    labels = scales::comma,
+    expand = expansion(mult = c(0, 0.15)) 
+  ) +
+  labs(
+    x = "Region",
+    fill = "Month_Year",
+    title = "Case count in Apr 2026 vs 2025 by region (service data)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title = element_text(face = "bold", size = 14),
+    axis.text = element_text(face = "bold", size = 14),
+    axis.text.x = element_text(angle = 45, hjust = 1, face = "bold"),
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  ) +
+  coord_flip()
+
+ggsave("output/apr_2026_bulletin/2.pos-by-region-Mar.svg", 
+       width= 10, height = 6, dpi = 600) 
+
+# 4.1. total number of cases (service report) in Apr 2025 by region
+Apr_hmis_25_26 |>
+  filter(data_type %in% c("positives"),
+         greg_year == 2026) |>
+  group_by(region) |>
+  summarise(total_case= sum(value, na.rm = TRUE)) |>
+  arrange(desc(total_case)) 
+
+# 4.2. Extracting sum of positive cases from the top three regions
+# (service data)
+Apr_hmis_25_26 |>
+  filter(data_type == "positives", 
+         region %in% c("Oromia", "Amhara", "South"),
+         greg_year == 2026) |>
+  summarise(total= sum(value)) #204,689, #national pos= 344,019
+
+```
+
+**Figure 3. Service Data versus Disease Surveillance Data**
+
+This visualization compares confirmed malaria cases reported through:
+
+- HMIS service report &
+- HMIS disease report streams
+
+The comparison serves as a routine data quality check and helps identify potential discrepancies between reporting streams.
+
+```{r}
+# 5. Service vs disease data comparison
+Apr_hmis_25_26 |>
+  group_by(month_year, data_type) |>
+  summarise(total = sum(value, na.rm = TRUE), .groups = "drop") |>
+  pivot_wider(names_from = data_type, values_from = total) |>
+  mutate(disease_data = rowSums(across(c(pf_conf, pv_conf, mixed_conf)), na.rm = TRUE)) |>
+  rename(service_data = positives) |>
+  pivot_longer(cols = c(disease_data, service_data), names_to = "data_source", values_to = "total") |>
+  ggplot(aes(x=month_year, y= total, fill = data_source)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8))+
+  # Add labels
+  geom_text(aes(label = scales::comma(total)),
+            position = position_dodge(width = 0.7),
+            hjust = 0.4, vjust= 3, size = 5, fontface = "bold", color= "white") +
+  
+  scale_fill_manual(values = c("service_data" = "#007476", "disease_data" = "#ff7f50")) +
+  scale_y_continuous(
+    name = "case count",
+    labels = scales::comma,
+    expand = expansion(mult = c(0, 0.15)) 
+  ) +
+  labs(
+    x = "month_year",
+    fill = "Data Source",
+    title = "Service vs Disease data (Apr 2025 vs Apr 2026)") +
+  theme_minimal() +
+  theme(
+    axis.title = element_text(face = "bold", size = 14),
+    axis.text = element_text(face = "bold", size = 14),
+    axis.text.x = element_text(angle = 45, hjust = 1, face = "bold"),
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(face = "bold"),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  ) 
+
+ggsave("output/apr_2026_bulletin/3.service vs disease data Mar.svg", 
+       width= 10, height = 6) 
+```
+
+**Figure 4. Confirmed Malaria Cases by Species**
+
+This visualization compares the proportional contribution of:
+
+- Plasmodium falciparum
+- Plasmodium vivax
+- Mixed (pf/pv) infections
+
+between the reporting month and the corresponding month in the previous year.
+
+The figure supports monitoring of changes in malaria species composition.
+
+```{r}
+# 6. malaria by species
+Apr_hmis_25_26 |>
+  filter(data_type %in% c("pf_conf", "pv_conf", "mixed_conf")) |>
+  group_by(data_type, month_year) |>
+  summarise(total= sum(value, na.rm = TRUE),.groups = "drop") |>
+  pivot_wider(names_from = data_type, values_from = total) |>
+  mutate(cum_total = mixed_conf + pf_conf + pv_conf) |>
+  mutate(pf = (pf_conf/cum_total) * 100,
+         pv = (pv_conf/cum_total) * 100,
+         mixed = (mixed_conf/cum_total) * 100) |>
+  pivot_longer(cols = c("pf", "pv", "mixed"), names_to = "malaria_type",
+               values_to = "proportion") |>
+  mutate(malaria_type = factor(malaria_type, 
+                               levels = c("pf", "pv", "mixed")))|>
+  ggplot(aes(x=month_year, y=proportion, fill = malaria_type)) +
+  geom_bar(stat= "identity")+
+  geom_text(aes(label = paste0(round(proportion,1), " %")),
+            position = position_stack(vjust = 0.5),
+            color = "white", size = 5, fontface="bold") +
+  scale_fill_manual(values= c("pf" = "#007476", "pv" = "#ff7f50", "mixed" = "#ffd4aa")) +
+  labs(
+    x = "",
+    y= "proportion (%)",
+    fill = "Species_proportion",
+    title = "Confirmed malaria cases by species proportion"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title = element_text(face = "bold", size = 14),
+    axis.text = element_text(face = "bold", size = 14),
+    # axis.text.x = element_text(angle = 45, hjust = 1, face = "bold"),
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  ) 
+
+ggsave("output/apr_2026_bulletin/4.Mar-species-proportion.svg", 
+       width= 10, height = 6) 
+
+```
+
+# Bulletin Development
+
+Following completion of all analyses, the generated key performance indicators and visualizations are compiled and integrated into the standardized NMEP Monthly Bulletin template developed in Canva.
+
+The bulletin is organized into two main pages:
+
+## Page 1: Epidemiological Summary
+
+Page 1 presents a consolidated overview of malaria epidemiological trends and key findings for the reporting month. It includes:
+
+- Executive summary of key HMIS findings and programmatic achievements
+
+- Key performance indicators (KPIs)
+
+- Figure 1: Tests, positives, and test positivity rate (TPR) comparison
+
+- Figure 2: Confirmed malaria cases by region
+
+- Figure 3: Service versus disease data comparison
+
+- Figure 4: Malaria species proportion comparison
+
+This section is designed to provide a concise yet comprehensive snapshot of malaria trends and program performance, enabling rapid interpretation of the current situation.
+
+## Page 2: Programmatic Updates
+
+Page 2 highlights key operational and programmatic activities conducted during the reporting month. It includes:
+
+- Major programmatic achievements
+
+- Key operational and implementation challenges
+
+- Spotlight story highlighting a notable activity or success
+
+- Data source information, including the reporting period and date of data extraction
+
+This section complements the epidemiological summary by providing contextual information on program implementation and field-level activities.
+
+## Quality Assurance
+
+Prior to publication, the following quality assurance checks are conducted to ensure accuracy, consistency, and completeness of the bulletin:
+
+- Verification that the correct reporting month and comparison period are used throughout the analysis
+
+- Confirmation that all KPI values are consistent with HMIS source data
+
+- Validation of mortality figures and other key indicators
+
+- Review of all figures, including titles, labels, and annotations for accuracy and clarity
+
+- Verification that the executive summary accurately reflects the analytical outputs
+
+- Confirmation that the data extraction date and source are clearly documented
+
+These checks ensure the reliability of the bulletin and maintain consistency across monthly reporting cycles.
+
+# Monthly Bulletin Production Checklist
+
+## Step 1: Setup
+
+- Update month parameters (e.g., Apr → May)
+
+- Create monthly working directory
+
+- Load latest cleaned HMIS dataset
+
+## Step 2: Data Preparation
+
+- Filter reporting month and previous year
+
+- Save filtered dataset
+
+## Step 3: Analysis
+
+- Generate KPIs
+
+- Compute regional summaries
+
+- Generate service vs disease comparison
+
+- Compute species distribution
+
+## Step 4: Visualization
+
+- Generate all standard figures
+
+- Export figures as SVG
+
+## Step 5: Bulletin Assembly
+
+- Open Canva template
+
+- Duplicate for current month
+
+- Replace figures and KPIs
+
+- Update executive summary
+
+## Step 6: Quality Assurance
+
+- Validate all outputs
+
+- Cross-check with HMIS totals
+
+- Review labels and consistency
+
+## Step 7: Publication
+
+- Export final bulletin as PDF
+
+- Save in monthly archive folder
+
+- Share with stakeholders
