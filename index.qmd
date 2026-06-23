@@ -17,6 +17,10 @@ Select documentations below:-
 
 Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/)
 
+### Dashboard Application Source Code
+
+Source code for the NMEP interactive shiny dashboard application. [Open GitHub Repository](https://github.com/preelon/District-level-NMEP-dashboard.git)
+
 ### Monthly Bulletin Workflow
 
 End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulletin/)
