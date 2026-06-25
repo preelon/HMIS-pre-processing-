@@ -15,9 +15,11 @@ Select documentations below:-
 ---
 ### HMIS-driven Dashboard Guide
 
-Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/)
+Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/), 
 
-### Dashboard Application Source Code
+- [Open Dashboard](https://enku-demssie.shinyapps.io/Ethiopian_NMEP_dashboard/)
+
+## Dashboard Application Source Code
 
 Source code for the NMEP interactive shiny dashboard application. [Open GitHub Repository](https://github.com/preelon/District-level-NMEP-dashboard.git)
 

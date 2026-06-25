@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "",
-    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Dashboard Workflow\n\n\n\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\n\n\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow\n\n\n\nReport of a retrospective observational analysis that was conducted using 5 years of HMIS data. Open Report (PDF)"
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Dashboard Workflow,\n\nOpen Dashboard"
   },
   {
     "objectID": "index.html#disease-surveilance-data",
@@ -242,7 +242,7 @@
     "href": "index.html#welcome",
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "",
-    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Dashboard Workflow\n\n\n\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\n\n\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow\n\n\n\nReport of a retrospective observational analysis that was conducted using 5 years of HMIS data. Open Report (PDF)"
+    "text": "This portal provides standardized documentation for Ethiopia’s NMEP data and analytics workflows prepared as part of the MACEPA data analytics fellowship program.\nSelect documentations below:-\n\n\n\nInteractive dashboard workflow documentation. Dashboard Workflow,\n\nOpen Dashboard"
   },
   {
     "objectID": "index.html#modules",
@@ -523,5 +523,33 @@
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "Select documentations below:-",
     "text": "Select documentations below:-\n\nHMIS-driven Dashboard Guide\nInteractive dashboard workflow documentation. Bulletin Workflow\n\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Dashboard Workflow"
+  },
+  {
+    "objectID": "index.html#view-output-live-dashboard",
+    "href": "index.html#view-output-live-dashboard",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "View Output (Live Dashboard)",
+    "text": "View Output (Live Dashboard)\nThe final output of this workflow is implemented in the NMEP interactive dashboard.\nOpen Dashboard Application"
+  },
+  {
+    "objectID": "index.html#dashboard-application-source-code",
+    "href": "index.html#dashboard-application-source-code",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Dashboard Application Source Code",
+    "text": "Dashboard Application Source Code\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow\n\n\nInsights into data consistency across HMIS Service Vs Disease report\nReport of a retrospective observational analysis that was conducted using 5 years of HMIS data. Open Report (PDF)"
+  },
+  {
+    "objectID": "index.html#live-dashboard",
+    "href": "index.html#live-dashboard",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Live Dashboard",
+    "text": "Live Dashboard\nOpen Dashboard"
+  },
+  {
+    "objectID": "index.html#live-dashboard-open-dashboard",
+    "href": "index.html#live-dashboard-open-dashboard",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Live Dashboard/* Open Dashboard",
+    "text": "Live Dashboard/* Open Dashboard"
   }
 ]
