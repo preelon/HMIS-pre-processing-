@@ -536,7 +536,7 @@
     "href": "index.html#dashboard-application-source-code",
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "Dashboard Application Source Code",
-    "text": "Dashboard Application Source Code\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow\n\n\nInsights into data consistency across HMIS Service Vs Disease report\nReport of a retrospective observational analysis that was conducted using 5 years of HMIS data. Open Report (PDF)"
+    "text": "Dashboard Application Source Code\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow"
   },
   {
     "objectID": "index.html#live-dashboard",

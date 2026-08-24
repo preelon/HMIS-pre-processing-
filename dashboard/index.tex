@@ -1,0 +1,1866 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={National Malaria Elimination Program Dashboard: Technical Documentation and User Guide},
+  pdfauthor={Enku Demssie},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{National Malaria Elimination Program Dashboard: Technical
+Documentation and User Guide}
+\author{Enku Demssie}
+\date{2026-06-01}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{4}
+\tableofcontents
+}
+
+\section{Introduction}\label{introduction}
+
+The National Malaria Elimination Program (NMEP) malaria dashboard was
+developed to support routine monitoring and analysis of malaria
+indicators using data from the national Health Management Information
+System (HMIS), implemented through DHIS2.
+
+The dashboard integrates routine HMIS data on malaria testing, confirmed
+cases, species distribution, and malaria-related deaths across inpatient
+and outpatient services. These data are used for monitoring malaria
+trends over time and across geographic areas.
+
+The system is designed to enable standardized analysis of key malaria
+indicators at woreda level, supporting routine program monitoring,
+reporting, and decision-making.
+
+This document describes the step-by-step process used to develop the
+dashboard, including data extraction, processing, indicator
+construction, and deployment.
+
+\section{Overview of The Dashboard Development
+Process}\label{overview-of-the-dashboard-development-process}
+
+The development of the HMIS-based NMEP dashboard followed a structured
+workflow consisting of the following key steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Data extraction from DHIS2
+\item
+  Data preparation and cleaning
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Data preparation
+  \item
+    General cleaning and harmonization
+  \item
+    Geographic cleaning
+  \end{itemize}
+\item
+  Dashboard dataset preparation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Historical data integration
+  \item
+    Lookup tables
+  \item
+    Time enrichment
+  \item
+    Aggregation
+  \end{itemize}
+\item
+  Visualization and dashboard development
+\item
+  Deployment and routine updating
+\end{enumerate}
+
+Each step is described in detail in the following sections.
+
+\section{1. Data Extraction from
+DHIS2}\label{data-extraction-from-dhis2}
+
+Data for the dashboard were extracted from the national Health
+Management Information System (HMIS) implemented through DHIS2. The
+extraction covered the period from January 2020 to April 2026 and was
+conducted at the woreda level, which was selected as the lowest
+administrative unit for analysis and visualization.
+
+Data were drawn from three primary HMIS datasets to support
+comprehensive analysis of malaria burden, service delivery, and
+reporting performance.
+
+\subsection{1.1 Disease surveilance
+Data}\label{disease-surveilance-data}
+
+The disease surveillance dataset was extracted from DHIS2 using the
+following components:
+
+\begin{itemize}
+\tightlist
+\item
+  Data elements (malaria-related indicators)\\
+\item
+  Period\\
+\item
+  Organizational unit\\
+\item
+  Outcome (morbidity and mortality disaggregation)\\
+\item
+  Department (inpatient and outpatient disaggregation)
+\end{itemize}
+
+These components enabled structured disaggregation of malaria burden
+across time, geography, and service delivery settings.
+
+A total of 16 malaria-related data elements were included. These
+comprised both ICD-10--based data elements (used prior to mid-2023) and
+ICD-11--based data elements (currently in use). This approach ensured
+continuity of analysis despite changes in disease classification
+systems.
+
+\textbf{Disease Surveillance Data Elements}
+
+\textbf{ICD-10 (2018--2023)}
+
+\begin{itemize}
+\tightlist
+\item
+  B50--196 Malaria (Plasmodium falciparum malaria)\\
+\item
+  B50--197 Malaria (Plasmodium falciparum with cerebral complications)\\
+\item
+  B50--198 Malaria (Other severe and complicated Plasmodium falciparum
+  malaria)\\
+\item
+  B50--199 Malaria (Plasmodium falciparum unspecified)\\
+\item
+  B50--200 Malaria (Plasmodium vivax malaria)\\
+\item
+  B50--201 Malaria (Plasmodium vivax with other complications)\\
+\item
+  B50--202 Malaria (Plasmodium vivax without complication)\\
+\item
+  B50--203 Mixed malaria (Other parasitologically confirmed malaria)\\
+\item
+  B50--204 Malaria (Unspecified malaria)
+\end{itemize}
+
+\textbf{ICD-11 (2023--present)}
+
+\begin{itemize}
+\item
+  1F40 Malaria due to \emph{Plasmodium falciparum}\\
+\item
+  1F41 Malaria due to \emph{Plasmodium vivax}\\
+\item
+  1F42 Malaria due to \emph{Plasmodium malariae}\\
+\item
+  1F43 Malaria due to \emph{Plasmodium ovale}\\
+\item
+  1F44 Other parasitologically confirmed malaria\\
+\item
+  1F40/1F41 Mixed malaria (\emph{P. falciparum} and \emph{P. vivax})\\
+\item
+  1F45 Malaria without parasitological confirmation
+\end{itemize}
+
+\subsection{1.2 Service Delivery Data}\label{service-delivery-data}
+
+Service delivery data were extracted separately from DHIS2, as this
+dataset does not support the additional disaggregation dimensions used
+in the disease surveillance dataset (i.e., outcome and department). As a
+result, only the standard DHIS2 components were applied:
+
+\begin{itemize}
+\tightlist
+\item
+  Data elements\\
+\item
+  Period\\
+\item
+  Organizational unit
+\end{itemize}
+
+The dataset included three key malaria-related data elements:
+
+\begin{itemize}
+\tightlist
+\item
+  Malaria tests (legacy indicator used prior to 2023: ``Total number of
+  slides or RDT performed for malaria diagnosis'')\\
+\item
+  Malaria tests (current indicator: ``Slides or RDT performed for
+  malaria diagnosis'')\\
+\item
+  Confirmed positive malaria tests
+\end{itemize}
+
+This separation ensured consistency with the DHIS2 service reporting
+structure while maintaining data integrity across indicator definitions
+and system updates.
+
+\subsection{1.3 Reporting Completeness and Timeliness
+Data}\label{reporting-completeness-and-timeliness-data}
+
+Data on service report completeness and timeliness were extracted from
+the integrated service reporting dataset used across malaria, NTD, and
+NCD programs, as no malaria-specific reporting performance dataset is
+available.
+
+The dataset included nine data elements, disaggregated by facility type:
+
+\begin{itemize}
+\tightlist
+\item
+  Hospitals, health centers, and private facilities\\
+\item
+  Basic health posts\\
+\item
+  Comprehensive health posts
+\end{itemize}
+
+For each facility type, the following indicators were extracted:
+
+\begin{itemize}
+\tightlist
+\item
+  Actual reports submitted\\
+\item
+  Reports submitted on time\\
+\item
+  Expected reports
+\end{itemize}
+
+These data elements were used to assess service report completeness and
+timeliness across different levels of the health system.
+
+\textbf{Data Export Format}
+
+All datasets were manually exported from DHIS2 in CSV format. These
+exports formed the input datasets for subsequent data cleaning,
+transformation, and indicator calculation within the dashboard
+development workflow.
+
+\section{2. Data Preparation \&
+cleaning}\label{data-preparation-cleaning}
+
+The raw HMIS datasets (disease surveillance, service delivery, and
+reporting completeness \& timeliness) were processed to create a unified
+analysis-ready dataset for the dashboard. The cleaning and
+transformation process was implemented in R.
+
+\subsection{2.1 Data preparation}\label{data-preparation}
+
+\subsubsection{2.1.1 Standardization of variable names and geographic
+fields}\label{standardization-of-variable-names-and-geographic-fields}
+
+The three datasets extracted from DHIS2 were first read into the R
+environment.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse) }
+\FunctionTok{library}\NormalTok{(lubridate)}
+
+\CommentTok{\# reading the disease report dat}
+\NormalTok{df\_species }\OtherTok{\textless{}{-}} \FunctionTok{suppressWarnings}\NormalTok{(}
+  \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/raw/April 2026 hmis/disease\_dat\_april2026.csv"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{))}
+
+\CommentTok{\# reading the service report data}
+\NormalTok{df\_service }\OtherTok{\textless{}{-}} \FunctionTok{suppressWarnings}\NormalTok{(}\FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/raw/April 2026 hmis/service\_dat\_april2026.csv"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{))}
+
+\CommentTok{\# reading the dataset for service report completeness \& timeliness}
+\NormalTok{df\_report }\OtherTok{\textless{}{-}}\FunctionTok{suppressMessages}\NormalTok{(}
+  \FunctionTok{suppressWarnings}\NormalTok{(}
+  \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/raw/April 2026 hmis/report\_dat\_april2026.csv"}\NormalTok{,}\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)))}
+
+\CommentTok{\# checking the variable names for the 3 dataset}
+\FunctionTok{names}\NormalTok{(df\_species)}
+\FunctionTok{names}\NormalTok{(df\_service)}
+\FunctionTok{names}\NormalTok{(df\_report)}
+
+\CommentTok{\# preparing a function to rename the adminstartive levels }
+\NormalTok{rename\_geo }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df)\{}
+\NormalTok{  df }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{rename}\NormalTok{(}
+      \AttributeTok{period =}\NormalTok{ periodname,}
+      \AttributeTok{region =}\NormalTok{ orgunitlevel2,}
+      \AttributeTok{zone   =}\NormalTok{ orgunitlevel3,}
+      \AttributeTok{woreda =}\NormalTok{ orgunitlevel4}
+\NormalTok{    )}
+\NormalTok{\}}
+
+\CommentTok{\# performing demonstrative leve renaming using the above function}
+\NormalTok{df\_species }\OtherTok{\textless{}{-}} \FunctionTok{rename\_geo}\NormalTok{(df\_species)}
+\NormalTok{df\_service }\OtherTok{\textless{}{-}} \FunctionTok{rename\_geo}\NormalTok{(df\_service)}
+\NormalTok{df\_report  }\OtherTok{\textless{}{-}} \FunctionTok{rename\_geo}\NormalTok{(df\_report)}
+\end{Highlighting}
+\end{Shaded}
+
+At this stage, variable names and administrative unit fields were
+standardized across all datasets to ensure consistency prior to
+integration.
+
+\subsubsection{2.1.2 Reshaping to long
+format}\label{reshaping-to-long-format}
+
+Each dataset was transformed from wide format to long format to enable
+indicator-level analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_species\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_species }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{matches}\NormalTok{(}\StringTok{"ESV|B50"}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"data\_type"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{)}
+
+\NormalTok{df\_service\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_service }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{contains}\NormalTok{(}\StringTok{"RDT"}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"data\_type"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{)}
+
+\NormalTok{df\_report\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_report }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{matches}\NormalTok{(}\StringTok{"NCD|NTD"}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"data\_type"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.1.3 Standardization of indicator
+dimensions}\label{standardization-of-indicator-dimensions}
+
+To allow integration, missing categorical variables were added to ensure
+a consistent structure across datasets.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_service\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_service\_long }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{department =} \ConstantTok{NA\_character\_}\NormalTok{,}
+         \AttributeTok{outcome =} \ConstantTok{NA\_character\_}\NormalTok{,}
+         \AttributeTok{facility\_type =} \ConstantTok{NA\_character\_}\NormalTok{)}
+
+\NormalTok{df\_report\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_report\_long }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{department =} \ConstantTok{NA\_character\_}\NormalTok{,}
+         \AttributeTok{outcome =} \ConstantTok{NA\_character\_}\NormalTok{)}
+
+\NormalTok{df\_species\_long }\OtherTok{\textless{}{-}}\NormalTok{ df\_species\_long }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{facility\_type =} \ConstantTok{NA\_character\_}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.1.4 Dataset integration}\label{dataset-integration}
+
+After standardizing variable names and aligning dataset structures, the
+disease surveillance, service delivery, and reporting datasets were
+integrated into a single unified dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{combined\_hmis }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(}
+\NormalTok{  df\_species\_long,}
+\NormalTok{  df\_service\_long,}
+\NormalTok{  df\_report\_long}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The resulting dataset (`combined\_hmis`) serves as the primary
+integrated dataset for subsequent processing steps, including geographic
+cleaning and indicator construction for the dashboard.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# saving the integrated dataset}
+\FunctionTok{saveRDS}\NormalTok{(combined\_hmis,}
+        \StringTok{"data/raw/April 2026 hmis/combined{-}hmis{-}apr\_2026.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2.2. General Data Cleaning and
+Harmonization}\label{general-data-cleaning-and-harmonization}
+
+Following the creation of the integrated dataset
+(\texttt{combined\_hmis}), a general cleaning and harmonization process
+was applied to standardize variable names, data elements, time
+variables, and geographic identifiers prior to geographic cleaning.
+
+This step ensured that the dataset was consistent, structured, and ready
+for geospatial standardization and downstream analysis.
+
+\subsubsection{2.2.1 Loading processed
+dataset}\label{loading-processed-dataset}
+
+The integrated HMIS dataset from the previous step was loaded into the R
+environment for further cleaning and transformation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries }
+\FunctionTok{library}\NormalTok{(tidyverse) }
+\FunctionTok{library}\NormalTok{(lubridate) }
+\FunctionTok{library}\NormalTok{(janitor) }
+\FunctionTok{library}\NormalTok{(sf) }
+\FunctionTok{library}\NormalTok{(stringr)}
+
+\CommentTok{\#reading the integrated dataset}
+\NormalTok{combined\_hmis }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{( }\StringTok{"data/raw/April 2026 hmis/combined{-}hmis{-}apr\_2026.rds"}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.2.2 Standardization of variable names and text
+fields}\label{standardization-of-variable-names-and-text-fields}
+
+Variable names and geographic text fields were cleaned to ensure
+consistency across administrative units.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{combined\_hmis }\OtherTok{\textless{}{-}}\NormalTok{ combined\_hmis }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  janitor}\SpecialCharTok{::}\FunctionTok{clean\_names}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Region"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"region"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"City Administration"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"al Health Bureau"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Ethiopian"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Ethiopia"}\NormalTok{, }\StringTok{""}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"  "}\NormalTok{, }\StringTok{" "}\NormalTok{, region),}
+    \AttributeTok{region =} \FunctionTok{str\_trim}\NormalTok{(region)}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Health Office"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Zone"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"City Administration"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Zone Health Department"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Health Department"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Health department"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Woreda"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{zone =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Zonal"}\NormalTok{, }\StringTok{""}\NormalTok{, zone),}
+    \AttributeTok{woreda =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Town Adminstration"}\NormalTok{, }\StringTok{""}\NormalTok{, woreda),}
+    \AttributeTok{woreda =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"Health Office"}\NormalTok{, }\StringTok{""}\NormalTok{, woreda),}
+    \AttributeTok{woreda =} \FunctionTok{str\_squish}\NormalTok{(woreda)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.2.3 Harmonization of data
+elements}\label{harmonization-of-data-elements}
+
+Malaria-related indicators and reporting variables were standardized
+into a simplified classification system to enable consistent analysis
+across ICD-10 and ICD-11 periods.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pf\_conf }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"B50{-}196 Malaria (Plasmodium falciparum malaria)"}\NormalTok{,}
+             \StringTok{"B50{-}197 Malaria (Plasmodium falciparum malaria with cerebral complications)"}\NormalTok{,}
+             \StringTok{"B50{-}198 Malaria (Other severe and complicated Plasmodium falciparum malaria)"}\NormalTok{,}
+             \StringTok{"B50{-}199 Malaria (Plasmodium falciparum malaria unspecified)"}\NormalTok{,}
+             \StringTok{"ESV{-}ICD11 1F40 {-} Malaria due to Plasmodium falciparum"}\NormalTok{,}
+             \StringTok{"ESV{-}ICD11 1F44 {-} Other parasitologically confirmed malaria"}\NormalTok{,}
+             \StringTok{"B50{-}203 Mixed Malaria (Other parasitologically confirmed malaria)"}
+\NormalTok{)}
+
+\NormalTok{pv\_conf }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"B50{-}200 Malaria (Plasmodium vivax malaria)"}\NormalTok{,}
+             \StringTok{"B50{-}201 Malaria (Plasmodium vivax malaria with other complications)"}\NormalTok{,}
+             \StringTok{"B50{-}202 Malaria (Plasmodium vivax malaria without complication)"}\NormalTok{,}
+             \StringTok{"ESV{-}ICD11 1F41 {-} Malaria due to Plasmodium vivax"}
+\NormalTok{)}
+
+\NormalTok{mixed\_conf }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ESV{-}ICD11 1F40/1F41 {-}  Malaria due to Plasmodium falciparum associated with Malaria due to Plasmodium Vivax (Mixed Malaria)"}\NormalTok{,}
+                \StringTok{"B50{-}203 Mixed Malaria (Other parasitologically confirmed malaria)"}
+\NormalTok{)}
+
+\NormalTok{pm\_conf }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ESV{-}ICD11 1F42 {-} Malaria due to Plasmodium malariae"}\NormalTok{)}
+
+\NormalTok{po\_conf }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ESV{-}ICD11 1F43 {-} Malaria due to Plasmodium ovale"}\NormalTok{)}
+
+\NormalTok{clinical\_malaria }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"B50{-}204 Malaria (Unspecified malaria)"}\NormalTok{,}
+                      \StringTok{"ESV{-}ICD11 1F45 {-} Malaria without parasitological confirmation"}\NormalTok{)}
+
+\NormalTok{tested }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"MAL\_Slides or RDT performed for malaria diagnosis"}\NormalTok{,}
+            \StringTok{"{-}2017\_Total number of slides or RDT performed for malaria diagnosis"}\NormalTok{)}
+
+\NormalTok{positives }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"MAL\_Slides or RDT Positive"}\NormalTok{)}
+\NormalTok{actual\_reports }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"08.1 {-} Malaria, NTD, NCD | Basic Health post | Monthly {-} Actual reports"}\NormalTok{,}
+                    \StringTok{"08.2 {-} Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly {-} Actual reports"}\NormalTok{,}
+                    \StringTok{"08.3 {-} Malaria, NTD, NCD | Comprehensive HP | Monthly {-} Actual reports"}\NormalTok{)}
+
+\NormalTok{actual\_on\_time }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"08.1 {-} Malaria, NTD, NCD | Basic Health post | Monthly {-} Actual reports on time"}\NormalTok{,}
+                    \StringTok{"08.2 {-} Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly {-} Actual reports on time"}\NormalTok{,}
+                    \StringTok{"08.3 {-} Malaria, NTD, NCD | Comprehensive HP | Monthly {-} Actual reports on time"}\NormalTok{)}
+
+\NormalTok{expected }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"08.1 {-} Malaria, NTD, NCD | Basic Health post | Monthly {-} Expected reports"}\NormalTok{,}
+              \StringTok{"08.2 {-} Malaria, NTD, NCD | Hospital, Health center, Clinic | Monthly {-} Expected reports"}\NormalTok{,}
+              \StringTok{"08.3 {-} Malaria, NTD, NCD | Comprehensive HP | Monthly {-} Expected reports"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.2.4 Standardization of data
+elements}\label{standardization-of-data-elements}
+
+All indicators were standardized into simplified categories for
+analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{combined\_hmis }\OtherTok{\textless{}{-}}\NormalTok{ combined\_hmis }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{data\_type =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ pf\_conf }\SpecialCharTok{\textasciitilde{}} \StringTok{"pf\_conf"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ pv\_conf }\SpecialCharTok{\textasciitilde{}} \StringTok{"pv\_conf"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ positives }\SpecialCharTok{\textasciitilde{}} \StringTok{"positives"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ tested }\SpecialCharTok{\textasciitilde{}} \StringTok{"tested"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ clinical\_malaria }\SpecialCharTok{\textasciitilde{}} \StringTok{"clinical"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ mixed\_conf }\SpecialCharTok{\textasciitilde{}} \StringTok{"mixed\_conf"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ po\_conf }\SpecialCharTok{\textasciitilde{}} \StringTok{"po\_conf"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ pm\_conf }\SpecialCharTok{\textasciitilde{}} \StringTok{"pm\_conf"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ actual\_reports }\SpecialCharTok{\textasciitilde{}} \StringTok{"actual\_reports"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ actual\_on\_time }\SpecialCharTok{\textasciitilde{}} \StringTok{"actual\_reports\_ontime"}\NormalTok{,}
+\NormalTok{      data\_type }\SpecialCharTok{\%in\%}\NormalTok{ expected }\SpecialCharTok{\textasciitilde{}} \StringTok{"expected\_reports"}\NormalTok{,}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ data\_type}
+\NormalTok{    )}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.2.5 Temporal standardization (Ethiopian to Gregorian
+calendar)}\label{temporal-standardization-ethiopian-to-gregorian-calendar}
+
+The period variable was parsed to extract Ethiopian calendar components
+and to derive corresponding Gregorian calendar dates. This was done to
+enable flexible time-series analysis while retaining the original
+Ethiopian calendar format for reference and reporting consistency.
+
+Both calendar systems were retained in the final dataset to support
+different analytical and reporting needs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eth\_months }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Meskerem"}\NormalTok{,}\StringTok{"Tikemet"}\NormalTok{,}\StringTok{"Hidar"}\NormalTok{,}\StringTok{"Tahesas"}\NormalTok{,}
+                \StringTok{"Tir"}\NormalTok{,}\StringTok{"Yekatit"}\NormalTok{,}\StringTok{"Megabit"}\NormalTok{,}\StringTok{"Miazia"}\NormalTok{,}
+                \StringTok{"Ginbot"}\NormalTok{,}\StringTok{"Sene"}\NormalTok{,}\StringTok{"Hamle"}\NormalTok{,}\StringTok{"Nehase"}\NormalTok{)}
+
+\NormalTok{greg\_months }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\NormalTok{month\_map }\OtherTok{\textless{}{-}} \FunctionTok{setNames}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{, eth\_months)}
+
+\NormalTok{combined\_hmis }\OtherTok{\textless{}{-}}\NormalTok{ combined\_hmis }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{eth\_month =} \FunctionTok{str\_extract}\NormalTok{(period, }\StringTok{"\^{}[\^{} ]+"}\NormalTok{),}
+    \AttributeTok{eth\_year  =} \FunctionTok{as.integer}\NormalTok{(}\FunctionTok{str\_extract}\NormalTok{(period, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+$"}\NormalTok{)),}
+    \AttributeTok{eth\_month\_num =}\NormalTok{ month\_map[eth\_month],}
+    \AttributeTok{greg\_year =} \FunctionTok{if\_else}\NormalTok{(eth\_month\_num }\SpecialCharTok{\textless{}=} \DecValTok{4}\NormalTok{, eth\_year }\SpecialCharTok{+} \DecValTok{7}\NormalTok{, eth\_year }\SpecialCharTok{+} \DecValTok{8}\NormalTok{),}
+    \AttributeTok{greg\_month =}\NormalTok{ greg\_months[eth\_month\_num],}
+    \AttributeTok{greg\_date =} \FunctionTok{make\_date}\NormalTok{(greg\_year, greg\_month, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{greg\_month =} \FunctionTok{month}\NormalTok{(greg\_date, }\AttributeTok{label =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{greg\_year =} \FunctionTok{year}\NormalTok{(greg\_date),}
+    \AttributeTok{month\_year =} \FunctionTok{paste}\NormalTok{(greg\_month, }\StringTok{"{-}"}\NormalTok{, greg\_year)}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}
+\NormalTok{    region, zone, woreda,}
+\NormalTok{    eth\_month, eth\_year,}
+\NormalTok{    greg\_date, greg\_month, greg\_year, month\_year,}
+\NormalTok{    facility\_type, department, outcome, data\_type, value}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+The dataset was saved after general cleaning and harmonization for use
+in subsequent steps, including geographic cleaning and downstream
+analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{saveRDS}\NormalTok{(}
+\NormalTok{  combined\_hmis,}
+  \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_general\_cleaning\_completed.rds"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2.3 Geographic name
+Cleaning}\label{geographic-name-cleaning}
+
+Following general data cleaning and harmonization, geographic variables
+were further standardized to ensure alignment between HMIS
+administrative unit names and the official Ethiopian administrative
+boundary reference.
+
+Geographic cleaning was performed separately for each administrative
+level (region, zone, and woreda) using a standardized cleaning function
+developed by the PATH/MACEPA data analytics team. This function was used
+to harmonize geographic identifiers across datasets and align them with
+the reference administrative structure.
+
+This step was implemented prior to indicator generation and
+visualization and was applied sequentially across all three
+administrative levels.
+
+\textbf{Management of unmatched geographic names}
+
+The geographic cleaning functions compare HMIS administrative unit names
+against the official administrative boundary reference dataset and the
+corresponding preprocessed correction files. In cases where unmatched
+names are identified, the unmatched records are exported for manual
+review.
+
+These records are then assessed and mapped to the appropriate
+administrative unit names. The resulting corrections are added to the
+relevant preprocessing file (e.g., region, zone, or woreda correction
+file).
+
+Once the correction file has been updated, the cleaning function can be
+rerun to apply the new mappings automatically. This process creates a
+growing repository of validated name corrections, reducing manual effort
+in future dashboard updates and improving consistency across reporting
+periods.
+
+\subsubsection{2.3.1 Region-level geographic
+cleaning}\label{region-level-geographic-cleaning}
+
+Region-level geographic cleaning was performed on the dataset resulting
+from general cleaning and harmonization. The objective was to
+standardize region names to match the official Ethiopian administrative
+reference.
+
+This step ensured that all region identifiers in the HMIS dataset were
+consistent with the official administrative boundary definitions derived
+from the national shapefile reference.
+
+\emph{Inputs to the region cleaning process}
+
+Three inputs were used in the region-level cleaning procedure:
+
+\begin{itemize}
+\item
+  \textbf{HMIS dataset (input data):}\\
+  The output from general cleaning and harmonization\\
+  (\texttt{apr\_2026\_hmis\_general\_cleaning\_completed.rds})
+\item
+  \textbf{Preprocessed region name corrections:}\\
+  A manually prepared mapping file containing inconsistent region names
+  and their corresponding corrected values\\
+  (\texttt{region\_names\_corrected.csv})
+\item
+  \textbf{Reference region names:}\\
+  official administrative boundary reference dataset\\
+  (\texttt{eth-admin3-v1082-clean-id.rds})
+\end{itemize}
+
+\textbf{Region cleaning process}
+
+Region cleaning was performed using a standardized function developed by
+the PATH/MACEPA data analytics team. This function applies predefined
+matching logic, correction mappings, and reference validation to align
+region names with the official administrative structure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(janitor)}
+
+\CommentTok{\# sourcing the geographic cleaning function}
+\FunctionTok{source}\NormalTok{(}\StringTok{"functions/geog\_cleaning\_accessories.R"}\NormalTok{)}
+
+\CommentTok{\# paths for the files needed }
+\NormalTok{ref\_path }\OtherTok{\textless{}{-}} \StringTok{"data/eth{-}admin3{-}v1082{-}clean{-}id.rds"}
+\NormalTok{dat\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_general\_cleaning\_completed.rds"}
+\NormalTok{pre\_path }\OtherTok{\textless{}{-}} \StringTok{"data/preprocessed/region\_names\_corrected.csv"}
+\NormalTok{out\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_region\_cleaning\_completed.rds"}
+
+\CommentTok{\# applying region cleaning function}
+\NormalTok{rclean }\OtherTok{\textless{}{-}} \FunctionTok{region\_clean}\NormalTok{(}
+  \AttributeTok{dat\_path =}\NormalTok{ dat\_path,}
+  \AttributeTok{pre\_path =}\NormalTok{ pre\_path,}
+  \AttributeTok{ref\_path =}\NormalTok{ ref\_path,}
+  \AttributeTok{out\_path =}\NormalTok{ out\_path}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Output of region cleaning}
+\end{itemize}
+
+The output of this step is a region-standardized HMIS dataset in which
+all region names are aligned with the official administrative reference.
+
+This dataset serves as the input for subsequent zone-level geographic
+cleaning.
+
+\subsubsection{2.3.2 Zone-level geographic
+cleaning}\label{zone-level-geographic-cleaning}
+
+Following region name standardization, zone names were cleaned and
+standardized to ensure alignment with the official administrative
+boundary reference dataset used in the dashboard.
+
+This step was performed after region cleaning because zone matching
+relies on a consistent regional structure.
+
+\emph{Inputs to the zone cleaning process}
+
+Three inputs were used in the zone-level cleaning procedure:
+
+\begin{itemize}
+\item
+  \textbf{HMIS dataset (input data):}\\
+  Output from the region cleaning step\\
+  (\texttt{apr\_2026\_hmis\_region\_cleaning\_completed.rds})
+\item
+  \textbf{Preprocessed zone name corrections:}\\
+  A manually prepared mapping file containing inconsistent zone names
+  and their corresponding corrected values\\
+  (\texttt{zone\_names\_corrected.csv})
+\item
+  \textbf{Reference administrative boundary dataset:}\\
+  Official administrative names used as the reference for geographic
+  standardization\\
+  (\texttt{eth-admin3-v1082-clean-id.rds})
+\end{itemize}
+
+\textbf{Zone cleaning process}
+
+Zone cleaning was performed using the standardized function developed by
+the PATH/MACEPA data analytics team. The function applies predefined
+correction mappings and reference matching procedures to align zone
+names with the official administrative hierarchy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(janitor)}
+
+\CommentTok{\# sourcing the geographic cleaning function}
+\FunctionTok{source}\NormalTok{(}\StringTok{"functions/geog\_cleaning\_accessories.R"}\NormalTok{)}
+
+\CommentTok{\# path for the reference administrative boundary dataset}
+\NormalTok{ref\_path }\OtherTok{\textless{}{-}} \StringTok{"data/eth{-}admin3{-}v1082{-}clean{-}id.rds"}
+
+\CommentTok{\# path for the input dataset}
+\NormalTok{dat\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_region\_cleaning\_completed.rds"}
+
+\CommentTok{\# path for preprocessed zone corrections}
+\NormalTok{pre\_path }\OtherTok{\textless{}{-}} \StringTok{"data/preprocessed/zone\_names\_corrected.csv"}
+
+\CommentTok{\# path for the output dataset}
+\NormalTok{out\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_zone\_cleaning\_completed.rds"}
+
+\CommentTok{\# clean zone names}
+\NormalTok{zclean }\OtherTok{\textless{}{-}} \FunctionTok{zone\_clean}\NormalTok{(}
+\NormalTok{  dat\_path,}
+\NormalTok{  pre\_path,}
+\NormalTok{  ref\_path,}
+\NormalTok{  out\_path}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2.3.3 Woreda-level geographic
+cleaning}\label{woreda-level-geographic-cleaning}
+
+Following zone-level standardization, woreda names were cleaned and
+standardized to ensure alignment with the official administrative
+boundary reference.
+
+This step was performed after region and zone cleaning because woreda
+matching relies on a consistent administrative hierarchy. Standardizing
+woreda names ensures that HMIS records can be accurately linked to the
+corresponding administrative boundaries used for analysis and
+visualization.
+
+\emph{Inputs to the woreda cleaning process}
+
+Three inputs were used in the woreda-level cleaning procedure:
+
+\begin{itemize}
+\item
+  \textbf{HMIS dataset (input data):}\\
+  Output from the zone cleaning step\\
+  (\texttt{apr\_2026\_hmis\_zone\_cleaning\_completed.rds})
+\item
+  \textbf{Preprocessed woreda name corrections:}\\
+  A cumulative correction file containing previously validated mappings
+  between unmatched HMIS woreda names and the corresponding official
+  administrative names\\
+  (\texttt{woreda\_names\_corrected.csv})
+\item
+  \textbf{Reference administrative boundary dataset:}\\
+  Official administrative names used as the reference for geographic
+  standardization\\
+  (\texttt{eth-admin3-v1082-clean-id.rds})
+\end{itemize}
+
+\textbf{Woreda cleaning process}
+
+Woreda cleaning was performed using the same standardized function
+developed by the PATH/MACEPA team. The function applies predefined
+correction mappings and reference matching procedures to align woreda
+names with the official administrative hierarchy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries }
+\FunctionTok{library}\NormalTok{(tidyverse) }
+\FunctionTok{library}\NormalTok{(lubridate) }
+\FunctionTok{library}\NormalTok{(janitor)}
+
+\CommentTok{\# sourcing the geographic cleaning function}
+\FunctionTok{source}\NormalTok{(}\StringTok{"functions/geog\_cleaning\_accessories.R"}\NormalTok{)}
+
+\CommentTok{\# path for the reference administrative boundary dataset}
+\NormalTok{ref\_path }\OtherTok{\textless{}{-}} \StringTok{"data/eth{-}admin3{-}v1082{-}clean{-}id.rds"}
+
+\CommentTok{\# path for the input dataset}
+\NormalTok{dat\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_zone\_cleaning\_completed.rds"}
+
+\CommentTok{\# path for preprocessed woreda corrections}
+\NormalTok{pre\_path }\OtherTok{\textless{}{-}} \StringTok{"data/preprocessed/woreda\_names\_corrected.csv"}
+
+\CommentTok{\# path for the output dataset}
+\NormalTok{out\_path }\OtherTok{\textless{}{-}} \StringTok{"data/processed/april 2026/apr\_2026\_hmis\_woreda\_cleaning\_completed.rds"}
+
+\CommentTok{\# clean woreda names}
+\NormalTok{wclean }\OtherTok{\textless{}{-}} \FunctionTok{woreda\_clean}\NormalTok{( dat\_path, pre\_path, ref\_path, out\_path )}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Integration of administrative identifiers}
+
+After woreda names were standardized, the cleaned HMIS dataset was
+linked to the administrative boundary reference dataset to incorporate
+the unique woreda identifier (\texttt{id\_1082}).
+
+The \texttt{id\_1082} variable is a standardized administrative code
+assigned to each woreda in the national administrative boundary dataset.
+Incorporating this identifier provides a stable geographic reference
+that is not affected by spelling variations or naming inconsistencies.
+
+The identifier is used throughout the dashboard workflow for geographic
+aggregation, linkage with auxiliary datasets, and spatial visualization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# read cleaned HMIS data}
+\NormalTok{clean\_woredas }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(out\_path) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}
+    \SpecialCharTok{{-}}\NormalTok{region\_old,}
+    \SpecialCharTok{{-}}\NormalTok{zone\_old,}
+    \SpecialCharTok{{-}}\NormalTok{woreda\_old,}
+    \SpecialCharTok{{-}}\NormalTok{non\_zero\_ever,}
+    \SpecialCharTok{{-}}\NormalTok{matched}
+\NormalTok{  )}
+
+\CommentTok{\# read reference administrative boundary dataset}
+\NormalTok{sf }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(ref\_path) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  sf}\SpecialCharTok{::}\FunctionTok{st\_drop\_geometry}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{region\_old, }\SpecialCharTok{{-}}\NormalTok{pop\_2022)}
+
+\CommentTok{\# join administrative identifier}
+\NormalTok{final\_out }\OtherTok{\textless{}{-}}\NormalTok{ clean\_woredas }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{left\_join}\NormalTok{(}
+\NormalTok{    sf,}
+    \AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"region"}\NormalTok{, }\StringTok{"zone"}\NormalTok{, }\StringTok{"woreda"}\NormalTok{)}
+\NormalTok{  )}
+
+\CommentTok{\# save final geographic{-}cleaned dataset}
+\FunctionTok{saveRDS}\NormalTok{(final\_out, out\_path)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output of woreda cleaning}
+
+The output of this step is a dataset with standardized region, zone, and
+woreda names aligned with the official administrative boundary reference
+dataset.
+
+This dataset serves as the geographic-cleaned HMIS dataset and provides
+the basis for subsequent aggregation, indicator calculation,
+visualization, and dashboard development.
+
+\section{3. dashboard-ready dataset
+preparation}\label{dashboard-ready-dataset-preparation}
+
+\subsection{3.1 Integration with the historical HMIS
+dataset}\label{integration-with-the-historical-hmis-dataset}
+
+The dashboard is designed to display malaria trends over multiple years.
+Therefore, each newly processed monthly HMIS dataset must be integrated
+with the existing historical HMIS dataset maintained for the dashboard.
+
+At this stage, the processed HMIS dataset for the current reporting
+period was appended to the historical HMIS dataset. This process creates
+an updated master dataset containing all available HMIS records required
+for dashboard analysis and visualization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+
+\CommentTok{\# read historical HMIS dataset}
+\NormalTok{hmis\_large }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}
+  \StringTok{"data/processed/jan 2020{-}mar 2026/clean\_hmis\_2020\_2026.rds"}
+\NormalTok{)}
+
+\CommentTok{\# read newly processed HMIS dataset}
+\NormalTok{hmis\_apr\_2026 }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}
+  \StringTok{"data/processed/april 2026/clean\_apr\_2026.rds"}
+\NormalTok{)}
+
+\CommentTok{\# append new data to historical dataset}
+\NormalTok{binded\_hmis }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(}
+\NormalTok{  hmis\_large,}
+\NormalTok{  hmis\_apr\_2026}
+\NormalTok{)}
+
+\CommentTok{\# save updated master dataset}
+\FunctionTok{saveRDS}\NormalTok{(}
+\NormalTok{  binded\_hmis,}
+  \StringTok{"data/processed/april 2026/upto\_apr\_2026\_hmis\_for\_app.rds"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output of dataset integration}
+
+The output of this step is an updated master HMIS dataset containing
+both the historical records and the newly processed reporting period.
+
+This dataset serves as the source dataset for subsequent aggregation and
+indicator calculation steps used in the dashboard.
+
+\subsection{3.2 Creation of lookup tables and analytical
+dataset}\label{creation-of-lookup-tables-and-analytical-dataset}
+
+Following geographic cleaning, a set of supporting lookup tables were
+prepared to facilitate dashboard functionality and indicator
+calculation.
+
+The dashboard uses two types of lookup tables:
+
+\begin{itemize}
+\item
+  \textbf{Static lookup tables}, which are created once and reused
+  across routine dashboard updates. These include the population lookup
+  and time lookup tables.
+\item
+  \textbf{Dynamic lookup tables}, which are generated from the latest
+  HMIS data and therefore require updating whenever a new HMIS
+  extraction is processed. This includes the geographic lookup table.
+\end{itemize}
+
+These lookup tables are subsequently used to enrich the cleaned HMIS
+dataset and create the final analysis-ready dataset used throughout the
+dashboard.
+
+\textbf{Geographic lookup table}
+
+A geographic lookup table was generated from the geographically cleaned
+HMIS dataset. The lookup contains unique administrative identifiers and
+names for each region, zone, and woreda represented in the data.
+
+Unlike the population and time lookup tables, the geographic lookup is
+derived directly from the HMIS dataset and should be regenerated
+whenever a new HMIS extraction is processed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(sf)}
+
+\CommentTok{\# reading the cleaned hmis data}
+\NormalTok{hmis }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/processed/april 2026/april\_mar\_2026\_hmis\_woreda\_cleaning\_completed.rds"}\NormalTok{)}
+
+\CommentTok{\# read sf}
+\NormalTok{sf }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/eth{-}admin3{-}v1082{-}clean{-}id.rds"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+\NormalTok{  sf}\SpecialCharTok{::}\FunctionTok{st\_drop\_geometry}\NormalTok{()}
+
+
+\CommentTok{\# prepare a geo look up}
+\NormalTok{geo\_lookup }\OtherTok{\textless{}{-}}\NormalTok{ hmis }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{distinct}\NormalTok{(}
+\NormalTok{    id\_1082,}
+\NormalTok{    region,}
+\NormalTok{    zone,}
+\NormalTok{    woreda}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(region, zone, woreda)}
+
+\CommentTok{\# save the geo look up}
+\FunctionTok{saveRDS}\NormalTok{(geo\_lookup, }\StringTok{"data/processed/april 2026/geo\_lookup.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Population lookup table}
+
+A population lookup table containing annual woreda-level population
+estimates was prepared for use in population-based indicator
+calculations.
+
+This lookup is maintained separately from the HMIS data and can be
+reused across routine dashboard updates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create a population lookup}
+\NormalTok{pop\_lookup }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/eth{-}admin3{-}v1082{-}clean{-}id\_with\_pop\_2030.csv"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(year }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{2020}\SpecialCharTok{:}\DecValTok{2026}\NormalTok{))}
+
+\CommentTok{\# save population lookup (saved once, no need to repeat)}
+\CommentTok{\#saveRDS(pop\_lookup, "data/processed/population\_lookup.rds")}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Time lookup table}
+
+A time lookup table was created to provide standardized Gregorian and
+Ethiopian Fiscal Year (EFY) date variables used throughout the
+dashboard.
+
+This lookup is created independently of the HMIS data and can be reused
+across routine dashboard updates. It only requires modification if the
+dashboard period is extended beyond the range covered by the existing
+lookup table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# creating time lookup}
+\NormalTok{time\_lookup }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{greg\_date =} \FunctionTok{seq}\NormalTok{(}
+    \AttributeTok{from =} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2020{-}01{-}01"}\NormalTok{),}
+    \AttributeTok{to =} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2030{-}12{-}01"}\NormalTok{),}
+    \AttributeTok{by =} \StringTok{"month"}
+\NormalTok{  )}
+\NormalTok{)}
+
+\CommentTok{\# create gregorian variable}
+\NormalTok{time\_lookup }\OtherTok{\textless{}{-}}\NormalTok{ time\_lookup }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{greg\_year =} \FunctionTok{year}\NormalTok{(greg\_date),}
+    
+    \AttributeTok{greg\_month =} \FunctionTok{month}\NormalTok{(}
+\NormalTok{      greg\_date,}
+      \AttributeTok{label =} \ConstantTok{TRUE}\NormalTok{,}
+      \AttributeTok{abbr =} \ConstantTok{TRUE}
+\NormalTok{    ),}
+    \CommentTok{\# character type gregorian year for dashboard UI}
+   \AttributeTok{greg\_year\_ui =} \FunctionTok{factor}\NormalTok{(}
+\NormalTok{        greg\_year,}
+        \AttributeTok{levels =} \DecValTok{2020}\SpecialCharTok{:}\DecValTok{2026}
+\NormalTok{      ),}
+    
+    \AttributeTok{greg\_month\_num =} \FunctionTok{month}\NormalTok{(greg\_date),}
+    
+    \AttributeTok{month\_year =} \FunctionTok{format}\NormalTok{(}
+\NormalTok{      greg\_date,}
+      \StringTok{"\%b{-}\%Y"}
+\NormalTok{    )}
+\NormalTok{  )}
+
+\CommentTok{\# create EFY variable}
+\NormalTok{time\_lookup }\OtherTok{\textless{}{-}}\NormalTok{ time\_lookup }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    
+    \AttributeTok{efy =} \FunctionTok{ifelse}\NormalTok{(}
+\NormalTok{      greg\_month\_num }\SpecialCharTok{\textgreater{}=} \DecValTok{7}\NormalTok{,}
+\NormalTok{      greg\_year }\SpecialCharTok{{-}} \DecValTok{7}\NormalTok{,}
+\NormalTok{      greg\_year }\SpecialCharTok{{-}} \DecValTok{8}
+\NormalTok{    ),}
+    
+    \AttributeTok{efy\_month\_num =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      greg\_month\_num }\SpecialCharTok{\textgreater{}=} \DecValTok{7} \SpecialCharTok{\textasciitilde{}}\NormalTok{ greg\_month\_num }\SpecialCharTok{{-}} \DecValTok{6}\NormalTok{,}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ greg\_month\_num }\SpecialCharTok{+} \DecValTok{6}
+\NormalTok{    )}
+\NormalTok{  )}
+
+
+\CommentTok{\# creating EFY display label}
+\NormalTok{time\_lookup }\OtherTok{\textless{}{-}}\NormalTok{ time\_lookup }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{efy\_time =}\NormalTok{ month\_year}
+\NormalTok{  )}
+
+\CommentTok{\# convert to factor}
+\NormalTok{time\_lookup }\OtherTok{\textless{}{-}}\NormalTok{ time\_lookup }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    
+    \AttributeTok{greg\_month =} \FunctionTok{factor}\NormalTok{(}
+\NormalTok{      greg\_month,}
+      \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}
+        \StringTok{"Jan"}\NormalTok{,}\StringTok{"Feb"}\NormalTok{,}\StringTok{"Mar"}\NormalTok{,}\StringTok{"Apr"}\NormalTok{,}
+        \StringTok{"May"}\NormalTok{,}\StringTok{"Jun"}\NormalTok{,}\StringTok{"Jul"}\NormalTok{,}\StringTok{"Aug"}\NormalTok{,}
+        \StringTok{"Sep"}\NormalTok{,}\StringTok{"Oct"}\NormalTok{,}\StringTok{"Nov"}\NormalTok{,}\StringTok{"Dec"}
+\NormalTok{      )}
+\NormalTok{    ),}
+    
+    \AttributeTok{month\_year =} \FunctionTok{factor}\NormalTok{(}
+\NormalTok{      month\_year,}
+      \AttributeTok{levels =} \FunctionTok{format}\NormalTok{(}
+\NormalTok{        greg\_date,}
+        \StringTok{"\%b{-}\%Y"}
+\NormalTok{      )}
+\NormalTok{    )}
+\NormalTok{  )}
+
+\CommentTok{\# save the time lookup (saved once, no need to repeat)}
+\CommentTok{\#saveRDS(time\_lookup,"data/processed/time\_lookup.rds")}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3.3 Temporal enrichment of the HMIS
+dataset}\label{temporal-enrichment-of-the-hmis-dataset}
+
+After creating the time lookup table, it was joined to the
+geographically cleaned and integrated HMIS dataset using the Gregorian
+date variable (\texttt{greg\_date}).
+
+This step enriches the HMIS data with additional time-related variables
+required for dashboard filtering, aggregation, and visualization. These
+include Gregorian year and month variables, Ethiopian Fiscal Year (EFY)
+variables, and user-interface-friendly date fields.
+
+By storing these variables in the HMIS dataset, time transformations do
+not need to be recalculated repeatedly during dashboard execution,
+improving efficiency and ensuring consistent date handling throughout
+the application.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# join time lookup to the geography cleaned hmis}
+\NormalTok{hmis }\OtherTok{\textless{}{-}}\NormalTok{ hmis }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(}
+\NormalTok{    time\_lookup,}
+    \AttributeTok{by =} \StringTok{"greg\_date"}
+\NormalTok{  )}
+
+\CommentTok{\# selecting the columns needed for subsequent processing}
+\NormalTok{hmis }\OtherTok{\textless{}{-}}\NormalTok{ hmis }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}
+\NormalTok{    id\_1082,}
+\NormalTok{    region,}
+\NormalTok{    zone,}
+\NormalTok{    woreda,}
+\NormalTok{    greg\_date,}
+    \AttributeTok{greg\_year =}\NormalTok{ greg\_year.y,}
+    \AttributeTok{greg\_month =}\NormalTok{ greg\_month.y,}
+\NormalTok{    greg\_month\_num,}
+    \AttributeTok{month\_year =}\NormalTok{ month\_year.y,}
+\NormalTok{    efy,}
+\NormalTok{    greg\_year\_ui,}
+\NormalTok{    efy\_month\_num,}
+\NormalTok{    efy\_time,}
+\NormalTok{    facility\_type,}
+\NormalTok{    department,}
+\NormalTok{    outcome,}
+\NormalTok{    data\_type,}
+\NormalTok{    value}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output of lookup table creation and temporal enrichment}
+
+The output of this step is a geographically standardized and temporally
+enriched HMIS dataset.
+
+The dataset contains harmonized malaria indicators together with
+standardized administrative identifiers and Gregorian/Ethiopian Fiscal
+Year (EFY) time variables required for subsequent processing.
+
+This dataset serves as the input for the aggregation step.
+
+\subsection{3.4 Aggregation}\label{aggregation}
+
+To improve dashboard performance and reduce computational load in the
+Shiny application, the integrated HMIS dataset was aggregated prior to
+deployment.
+
+This step reduces data redundancy by summarizing records at the lowest
+analytical level required for visualization while preserving all key
+analytical dimensions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(sf)}
+
+\CommentTok{\# read integrated HMIS dataset}
+\NormalTok{hmis }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}
+  \StringTok{"data/processed/april 2026/upto\_apr\_2026\_hmis\_for\_app.rds"}
+\NormalTok{)}
+
+\CommentTok{\# aggregate HMIS data for dashboard efficiency}
+\NormalTok{hmis\_dashboard }\OtherTok{\textless{}{-}}\NormalTok{ hmis }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(}
+\NormalTok{    id\_1082,}
+\NormalTok{    region,}
+\NormalTok{    zone,}
+\NormalTok{    woreda,}
+\NormalTok{    facility\_type,}
+\NormalTok{    greg\_date,}
+\NormalTok{    department,}
+\NormalTok{    outcome,}
+\NormalTok{    data\_type}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{value =} \FunctionTok{sum}\NormalTok{(value, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output of aggregation}
+
+The output of this step is a reduced and performance-optimized dataset
+(hmis\_dashboard) in which duplicate records have been aggregated while
+preserving all analytical dimensions required for dashboard
+visualizations.
+
+This improves dashboard responsiveness by reducing memory usage and
+computational overhead during filtering and rendering.
+
+\section{4. Visualization and Dashboard
+Development}\label{visualization-and-dashboard-development}
+
+\subsection{4.1 Application initialization and data
+loading}\label{application-initialization-and-data-loading}
+
+Before launching the user interface and server components, the
+application loads all required datasets, lookup tables, geographic
+boundary files, and supporting objects.
+
+This initialization step ensures that all data required for filtering,
+indicator calculation, and visualization are available when the
+dashboard starts.
+
+The following resources are loaded:
+
+\begin{itemize}
+\tightlist
+\item
+  Dashboard-ready HMIS dataset
+\item
+  Population lookup table
+\item
+  Geographic lookup table
+\item
+  Administrative boundary shapefile
+\end{itemize}
+
+In addition, geographic layers are prepared for woreda-, zone-, and
+region-level mapping, and application-wide settings such as date
+ordering and visual themes are initialized.
+
+\subsection{4.2 Dashboard structure and
+navigation}\label{dashboard-structure-and-navigation}
+
+The dashboard was developed as a web-based interactive application using
+R Shiny. The application is organized into two main pages designed to
+support both user orientation and data exploration.
+
+\textbf{Overview page}
+
+The Overview page serves as the entry point to the dashboard and
+provides background information to help users understand the purpose,
+scope, and interpretation of the dashboard outputs.
+
+The page includes the following sections:
+
+\begin{itemize}
+\tightlist
+\item
+  About the dashboard
+\item
+  Data sources
+\item
+  Key indicators
+\item
+  Methodological notes and
+\item
+  Dashboard user guide
+\end{itemize}
+
+This page is intended to provide contextual information and support
+consistent interpretation of dashboard outputs.
+
+\textbf{Dashboard page}
+
+The Dashboard page contains all interactive visualizations and
+analytical outputs. It is organized into a sidebar panel containing
+user-defined filters and a main panel displaying a map, key performance
+indicators (KPIs), and charts.
+
+\textbf{Sidebar filters}
+
+The sidebar contains three groups of filters:
+
+\emph{Geographic filters}
+
+\begin{itemize}
+\tightlist
+\item
+  Region
+\item
+  Zone
+\item
+  Woreda
+\end{itemize}
+
+These filters allow users to view data at different administrative
+levels and geographic locations.
+
+\emph{Time filters}
+
+\begin{itemize}
+\tightlist
+\item
+  Gregorian year
+\item
+  Ethiopian Fiscal Year (EFY)
+\item
+  Month
+\end{itemize}
+
+These filters enable temporal analysis of malaria indicators.
+
+\emph{Reporting filters}
+
+\begin{itemize}
+\tightlist
+\item
+  Facility type
+\end{itemize}
+
+The facility type filter is used only for reporting completeness and
+timeliness indicators. All other filters apply across all dashboard
+components.
+
+\textbf{Dashboard outputs}
+
+The main dashboard panel is organized into four rows of analytical
+outputs.
+
+\emph{Row 1}
+
+\begin{itemize}
+\tightlist
+\item
+  Geographic map
+\item
+  Key Performance Indicators (KPIs)
+\end{itemize}
+
+\emph{Row 2}
+
+\begin{itemize}
+\tightlist
+\item
+  Malaria testing and Test Positivity Rate (TPR)
+\item
+  Species proportion
+\end{itemize}
+
+The testing and TPR visualization combines malaria testing volume as a
+bar chart with TPR displayed as a line on a secondary axis.
+
+\emph{Row 3}
+
+\begin{itemize}
+\tightlist
+\item
+  Parasite incidence per 1,000 population
+\item
+  Malaria mortality rate per 100,000 population at risk
+\end{itemize}
+
+\emph{Row 4}
+
+\begin{itemize}
+\tightlist
+\item
+  Reporting completeness
+\item
+  Reporting timeliness
+\end{itemize}
+
+\textbf{Visualization modes}
+
+All dashboard charts include a display toggle that allows users to
+switch between:
+
+\begin{itemize}
+\tightlist
+\item
+  Aggregate view and
+\item
+  Monthly trend view
+\end{itemize}
+
+The aggregate view summarizes indicator values over the selected period
+and geography, while the monthly view displays temporal trends across
+individual months.
+
+\section{5. Indicator Definitions and
+Calculations}\label{indicator-definitions-and-calculations}
+
+The dashboard presents key malaria surveillance, testing, mortality,
+species distribution, and reporting performance indicators derived from
+HMIS data. Indicator definitions and calculation methods are described
+below.
+
+\subsection{5.1 Malaria Cases}\label{malaria-cases}
+
+\textbf{Confirmed Malaria Cases}
+
+Confirmed malaria cases include all laboratory-confirmed malaria
+infections reported through HMIS, regardless of species.
+
+\textbf{Clinical Malaria Cases}
+
+Clinical malaria cases refer to malaria diagnoses made without
+parasitological confirmation.
+
+\textbf{All Malaria Cases}
+
+All malaria cases represent the total malaria burden reported through
+HMIS and are calculated as:
+
+\emph{All Cases = Confirmed Cases + Clinical Cases}
+
+\subsection{5.2 Malaria Deaths}\label{malaria-deaths}
+
+Malaria deaths are defined as inpatient malaria-related deaths reported
+through the HMIS disease surveillance system.
+
+\subsection{5.3 Test Positivity Rate
+(TPR)}\label{test-positivity-rate-tpr}
+
+The Test Positivity Rate (TPR) measures the proportion of malaria tests
+that yield a positive result.
+
+\emph{TPR = Positive Malaria Tests/Total malaria test performed x 100}
+
+Where:\\
+- Positive malaria tests = laboratory-confirmed positive malaria tests\\
+- Total malaria tests performed = all malaria diagnostic tests
+(microscopy and/or RDT)
+
+\subsection{5.4 Species Distribution}\label{species-distribution}
+
+Species proportions describe the relative contribution of each malaria
+species among confirmed malaria cases.
+
+\textbf{Plasmodium falciparum Proportion} = Pf cases/Total confirmed
+cases*100
+
+\textbf{Plasmodium vivax Proportion} = Pv cases/Total confirmed
+cases*100
+
+\textbf{Mixed malaria (pf/pv) Proportion} = Mixed cases/Total confirmed
+cases*100
+
+\emph{Total Confirmed Cases = Pf + Pv + Mixed + P. malariae + P. ovale}
+
+\subsection{5.5 Annual Parasite Incidence
+(API)}\label{annual-parasite-incidence-api}
+
+The dashboard uses adjusted malaria cases to account for clinically
+diagnosed malaria cases.
+
+Adjusted malaria cases are calculated as:
+
+\emph{Adjusted Cases = Confirmed Cases + (TPR × Clinical Cases)}
+
+Annual Parasite Incidence (API) is then calculated as:
+
+\emph{API = Adjusted Cases/ Total Population × 1000} and expressed as
+cases per 1,000 population.
+
+\subsection{5.6 Annualized Monthly Parasite
+Incidence}\label{annualized-monthly-parasite-incidence}
+
+For monthly dashboard displays, incidence is annualized to facilitate
+comparison with annual incidence targets.
+
+\emph{Annualized monthly incidence = (Adjusted cases X n/12)/Total
+population X 1000}
+
+Where:\\
+\emph{n = annualization factor used to project the observed reporting
+period to a 12-month equivalent}
+
+\subsection{5.7 Malaria Mortality Rate}\label{malaria-mortality-rate}
+
+The malaria mortality rate is calculated using the population at risk as
+the denominator.
+
+In accordance with the National Malaria Strategic Plan,the population at
+risk is defined as:~ \emph{Population at Risk = Total Population × 69\%}
+
+The mortality rate is calculated as:
+
+\emph{Motality\_rate = In-patient malaria deaths/population at risk X
+100,000} and expressed as deaths per 100,000 population at risk.
+
+\subsection{5.8 Annualized Monthly Mortality
+Rate}\label{annualized-monthly-mortality-rate}
+
+For monthly dashboard displays, mortality is annualized using the same
+approach applied to incidence.
+
+\emph{Annualized monthly mortality = (inpatient malaria deaths X
+n/12)/population at risk X 100,000}
+
+Where:\\
+\emph{n = annualization factor used to project the observed reporting
+period to a 12-month equivalent}
+
+\subsection{5.9 Reporting Completeness}\label{reporting-completeness}
+
+Reporting completeness measures the proportion of expected reports that
+were submitted.
+
+\emph{Reporting completeness = Actual reports/Expected reports X 100}
+
+\subsection{5.10 Reporting Timeliness}\label{reporting-timeliness}
+
+Reporting timeliness measures the proportion of expected reports that
+were submitted on time.
+
+\emph{Reporting timeliness = Reports received on time/Expected reports X
+100}
+
+\textbf{Notes on Reporting Indicators}
+
+Reporting completeness and reporting timeliness are assessed using only
+the \textbf{HMIS service reporting dataset}. Both the numerator and
+denominator values are system-generated by DHIS2 and are not calculated
+manually within the dashboard.
+
+These indicators assess reporting performance rather than malaria burden
+and are displayed separately from surveillance and service delivery
+indicators.
+
+\section{6. Monthly Dashboard Update
+Procedure}\label{monthly-dashboard-update-procedure}
+
+The dashboard is designed to be updated monthly as new HMIS data become
+available. The update process involves downloading the latest HMIS data,
+running the existing data processing scripts, replacing the dashboard
+dataset, and republishing the application.
+
+Near-complete HMIS data are typically available in DHIS2 from
+approximately the 22nd day of the following month. Dashboard updates
+should therefore be performed after this date to ensure adequate
+reporting completeness.
+
+\textbf{The monthly update workflow consists of the following steps:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the latest HMIS datasets from DHIS2:
+
+  \begin{itemize}
+  \item
+    Disease surveillance dataset
+  \item
+    Service delivery dataset
+  \item
+    Reporting completeness and timeliness dataset
+
+    Save the downloaded files in the designated raw data folder.
+  \end{itemize}
+\item
+  Run the data processing scripts sequentially:
+
+  \begin{itemize}
+  \item
+    Data preparation script
+  \item
+    General data cleaning and harmonization script
+  \item
+    Region-level geographic cleaning script
+  \item
+    Zone-level geographic cleaning script
+  \item
+    Woreda-level geographic cleaning script
+  \item
+    Dashboard dataset preparation script
+  \item
+    Historical data integration script
+  \item
+    Dashboard aggregation script
+  \end{itemize}
+\item
+  Review any unmatched geographic names generated during the cleaning
+  process.
+
+  \begin{itemize}
+  \item
+    Update the corresponding correction files if new unmatched names are
+    identified:
+
+    \begin{itemize}
+    \item
+      region\_names\_corrected.csv
+    \item
+      zone\_names\_corrected.csv
+    \item
+      woreda\_names\_corrected.csv
+    \end{itemize}
+  \end{itemize}
+\item
+  Rerun the relevant geographic cleaning script(s) if correction files
+  are updated.
+\item
+  Generate the updated dashboard-ready dataset.
+\item
+  Replace the existing dashboard dataset with the newly generated
+  dataset.
+\item
+  Run the Shiny application and verify that:
+
+  \begin{itemize}
+  \item
+    The latest reporting month is available.
+  \item
+    Dashboard visualizations render correctly.
+  \item
+    Key indicators and maps display expected values.
+  \item
+    Filters function as intended.
+  \end{itemize}
+\item
+  Republish the dashboard to ShinyApps.io. Perform a final review of the
+  published dashboard to confirm that the updated data are visible and
+  functioning correctly.
+\end{enumerate}
+
+This workflow should be repeated each month to maintain an up-to-date
+dashboard for routine malaria surveillance and program monitoring.
+
+
+
+
+\end{document}
