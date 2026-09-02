@@ -26,3 +26,14 @@ Source code for the NMEP interactive shiny dashboard application. [Open GitHub R
 ### Monthly Bulletin Workflow
 
 End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulletin/)
+
+## Capstone Project reports
+### 1. HMIS Service vs Disease Data Analysis
+This project quantified and characterized discrepancies between confirmed malaria positives reported through HMIS service reporting stream and confirmed cases recorded in disease reporting stream, and propose an evidence-informed approach to support NMEP in selecting and interpreting malaria data for routine analysis and reporting.
+
+[View PowerPoint](reports/Service vs Disease data comparative analysis.pptx)
+
+### 2. HMIS-driven interactive dashboard
+This project developed an interactive HMIS-driven malaria dashboard to strengthen routine monitoring and evidence-based decision-making in the NMEP.
+
+[View PowerPoint](reports/HMIS-driven interacive dashboard.pptx)
