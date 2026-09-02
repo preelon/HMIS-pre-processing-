@@ -31,7 +31,7 @@ End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulleti
 ### 1. HMIS Service vs Disease Data Analysis
 This project quantified and characterized discrepancies between confirmed malaria positives reported through HMIS service reporting stream and confirmed cases recorded in disease reporting stream, and propose an evidence-informed approach to support NMEP in selecting and interpreting malaria data for routine analysis and reporting.
 
-[View Report](reports/SService_vs_Disease_data_comparative_analysis.pdf)
+[View Report](reports/Service_vs_Disease_data_comparative_analysis.pdf)
 
 ### 2. HMIS-driven interactive dashboard
 This project developed an interactive HMIS-driven malaria dashboard to strengthen routine monitoring and evidence-based decision-making in the NMEP.
