@@ -536,7 +536,7 @@
     "href": "index.html#dashboard-application-source-code",
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "Dashboard Application Source Code",
-    "text": "Dashboard Application Source Code\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\nMonthly Bulletin Workflow\nEnd-to-end workflow for monthly bulletin production. Bulletin Workflow"
+    "text": "Dashboard Application Source Code\nSource code for the NMEP interactive shiny dashboard application. Open GitHub Repository\n\nMonthly Bulletin Workflow\nThe monthly malaria bulletins were designed and maintained for the National Malaria Elimination Program (NMEP). They provide regular summaries of malaria surveillance, trends, and key programmatic activities.\nThe links below provide access to the end-to-end workflow used to produce the bulletins, as well as 13 monthly NMEP bulletins covering the period from July 2025 onward.\nBulletin Workflow\nDownload the 13 Monthly NMEP Bulletins"
   },
   {
     "objectID": "index.html#live-dashboard",

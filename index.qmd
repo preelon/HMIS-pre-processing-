@@ -24,8 +24,14 @@ Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/),
 Source code for the NMEP interactive shiny dashboard application. [Open GitHub Repository](https://github.com/preelon/District-level-NMEP-dashboard.git)
 
 ### Monthly Bulletin Workflow
+The monthly malaria bulletins were designed and maintained for the **National Malaria Elimination Program (NMEP)**. They provide regular summaries of malaria surveillance, trends, and key programmatic activities.
 
-End-to-end workflow for monthly bulletin production. [Bulletin Workflow](bulletin/)
+The links below provide access to the end-to-end workflow used to produce the bulletins, as well as 13 monthly NMEP bulletins covering the period from July 2025 onward.
+
+[Bulletin Workflow](bulletin/)
+
+[Download the 13 Monthly NMEP Bulletins](https://drive.google.com/file/d/1n6PEx5TtkzSV9KVZvpEzL7H2hIRgWT4B/view?usp=sharing)
+
 
 ## Capstone Project reports
 ### 1. HMIS Service vs Disease Data Analysis
@@ -49,11 +55,4 @@ This research is an observational study which assessed the status of key HMIS ma
 This research employed a non-randomized controlled before-and-after (CBA) study design to assess changes in malaria outcomes during and after the Targeted Cluster Initiative (TCI), a six-month intervention launched in June 2024 in Ethiopia in response to the country’s malaria resurgence. The study aimed to generate an accessible evidence base to inform the planning and implementation of future malaria response interventions.
 
 [View Report](reports/TCI_impact_study.pdf)
-
-## NMEP monthly bulletins
-The monthly malaria bulletins were designed and maintained for the National Malaria Elimination Program. They provide regular summaries of malaria surveillance, trends, and key programmatic activities.
-
-The link below provides access to 13 monthly NMEP bulletins, covering the period from July 2025 onward.
-
-[Download the 13 Monthly NMEP Bulletins](https://drive.google.com/file/d/1n6PEx5TtkzSV9KVZvpEzL7H2hIRgWT4B/view?usp=sharing)
 
