@@ -37,3 +37,20 @@ This project quantified and characterized discrepancies between confirmed malari
 This project developed an interactive HMIS-driven malaria dashboard to strengthen routine monitoring and evidence-based decision-making in the NMEP.
 
 [View PowerPoint](reports/HMIS-driven interacive dashboard.pptx)
+
+
+## Operational researches
+### 1.Malaria trend before and after non-HRP RDT roll out in Ethiopia
+This research is an observational study which assessed the status of key HMIS malaria indicators pre and post non-HRP RDT rollout in Ethiopia.
+
+[View PowerPoint](reports/Malaria trend pre and post non-HRP RDT analysis orig v2.pptx)
+
+### Effect of the targeted cluster initiative on malaria indicators in Ethiopia 
+This research employed a non-randomized controlled before-and-after (CBA) study design to assess changes in malaria outcomes during and after the Targeted Cluster Initiative (TCI), a six-month intervention launched in June 2024 in Ethiopia in response to the country’s malaria resurgence. The study aimed to generate an accessible evidence base to inform the planning and implementation of future malaria response interventions.
+
+[View PowerPoint](reports/TCI impact study.pptx)
+
+## NMEP monthly bulletins
+Montly program bulletin was designed and maintained for the NMEP. The below zipped file contains 13 monthly bulletins starting from July 2025.
+
+[Download all the bulletins](reports/NMEP montly bulletins.zip)
