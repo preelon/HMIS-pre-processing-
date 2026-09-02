@@ -551,5 +551,12 @@
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "Live Dashboard/* Open Dashboard",
     "text": "Live Dashboard/* Open Dashboard"
+  },
+  {
+    "objectID": "index.html#capstone-project-reports",
+    "href": "index.html#capstone-project-reports",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Capstone Project reports",
+    "text": "Capstone Project reports\n\n1. HMIS Service vs Disease Data Analysis\nThis project quantified and characterized discrepancies between confirmed malaria positives reported through HMIS service reporting stream and confirmed cases recorded in disease reporting stream, and propose an evidence-informed approach to support NMEP in selecting and interpreting malaria data for routine analysis and reporting.\nView PowerPoint\n\n\n2. HMIS-driven interactive dashboard\nThis project developed an interactive HMIS-driven malaria dashboard to strengthen routine monitoring and evidence-based decision-making in the NMEP.\nView PowerPoint"
   }
 ]
