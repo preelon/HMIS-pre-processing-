@@ -572,5 +572,12 @@
     "title": "NMEP Data & Analytics Documentation Portal",
     "section": "NMEP monthly bulletins",
     "text": "NMEP monthly bulletins\nThe monthly malaria bulletins were designed and maintained for the National Malaria Elimination Program. They provide regular summaries of malaria surveillance, trends, and key programmatic activities.\nThe link below provides access to 13 monthly NMEP bulletins, covering the period from July 2025 onward.\nDownload the 13 Monthly NMEP Bulletins"
+  },
+  {
+    "objectID": "index.html#digital-data-collection-tools",
+    "href": "index.html#digital-data-collection-tools",
+    "title": "NMEP Data & Analytics Documentation Portal",
+    "section": "Digital Data Collection Tools",
+    "text": "Digital Data Collection Tools\n\nIRS 2026 Digital Data Collection Tool\nA KoboToolbox-based digital data collection tool developed for IRS campaigns at the request of the National Malaria Elimination Program. The tool lays the groundwork for transitioning from Excel-based data collection to a more standardized and structured digital approach.\nAccess the KoboToolbox data collection tool"
   }
 ]
