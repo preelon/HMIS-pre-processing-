@@ -8,9 +8,10 @@ format:
 
 ## Welcome
 
-This portal provides standardized documentation for **Ethiopia's NMEP data and analytics workflows** prepared as part of the MACEPA data analytics fellowship program.
+This portal provides standardized documentation and access to outputs developed through the **PATH/MACEPA Data Analytics Fellowship Program in Ethiopia**.
 
-Select documentations below:- 
+
+Select documentations/outputs below:- 
 
 ---
 ## 1. Interactive NMEP dashboard
