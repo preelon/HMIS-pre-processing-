@@ -13,52 +13,53 @@ This portal provides standardized documentation for **Ethiopia's NMEP data and a
 Select documentations below:- 
 
 ---
-### HMIS-driven Dashboard Guide
+## 1. Interactive NMEP dashboard
+### 1.1. workflow documentation
 
-Interactive dashboard workflow documentation. [Dashboard Workflow](dashboard/), 
+[Dashboard Workflow](dashboard/), 
 
 - [Open Dashboard](https://enku-demssie.shinyapps.io/Ethiopian_NMEP_dashboard/)
 
-## Dashboard Application Source Code
+### 1.2. Dashboard Application Source Code
 
-Source code for the NMEP interactive shiny dashboard application. [Open GitHub Repository](https://github.com/preelon/District-level-NMEP-dashboard.git)
+[Open GitHub Repository](https://github.com/preelon/District-level-NMEP-dashboard.git)
 
-### Monthly Bulletin Workflow
+## 2. Monthly program bulletin
 The monthly malaria bulletins were designed and maintained for the **National Malaria Elimination Program (NMEP)**. They provide regular summaries of malaria surveillance, trends, and key programmatic activities.
 
-The links below provide access to the end-to-end workflow used to produce the bulletins, as well as 13 monthly NMEP bulletins covering the period from July 2025 onward.
+The links below provide access to the end-to-end workflow used to produce the bulletins, as well as all the monthly bulletins covering the period starting July 2025.
 
 [Bulletin Workflow](bulletin/)
 
-[Download the 13 Monthly NMEP Bulletins](https://drive.google.com/file/d/1n6PEx5TtkzSV9KVZvpEzL7H2hIRgWT4B/view?usp=sharing)
+[Download the all the Monthly Bulletins](https://drive.google.com/file/d/1n6PEx5TtkzSV9KVZvpEzL7H2hIRgWT4B/view?usp=sharing)
 
 
-## Digital Data Collection Tools
-### IRS 2026 Digital Data Collection Tool
-A KoboToolbox-based digital data collection tool developed for IRS campaigns at the request of the National Malaria Elimination Program. The tool lays the groundwork for transitioning from Excel-based data collection to a more standardized and structured digital approach.
+## 3. Digital Data Collection Tools
+### 3.1. IRS 2026 Digital Data Collection Tool
+A KoboToolbox-based digital data collection tool was developed for IRS campaigns at the request of the National Malaria Elimination Program. The tool lays the groundwork for transitioning from Excel-based data collection to a more standardized and structured digital approach.
 
 [Access the KoboToolbox data collection tool](https://ee.kobotoolbox.org/x/LuvMDzGk)
 
 
-## Capstone Project reports
-### 1. HMIS Service vs Disease Data Analysis
+## 4. MACEPA data analytics fellowship program Capstone Project reports
+### 4.1. HMIS Service vs Disease Data Analysis
 This project quantified and characterized discrepancies between confirmed malaria positives reported through HMIS service reporting stream and confirmed cases recorded in disease reporting stream, and propose an evidence-informed approach to support NMEP in selecting and interpreting malaria data for routine analysis and reporting.
 
 [View Report](reports/Service_vs_Disease_data_comparative_analysis.pdf)
 
-### 2. HMIS-driven interactive dashboard
+### 4.2. HMIS-driven interactive dashboard
 This project developed an interactive HMIS-driven malaria dashboard to strengthen routine monitoring and evidence-based decision-making in the NMEP.
 
 [View Report](reports/HMIS_driven_interacive_dashboard.pdf)
 
 
-## Operational researches
-### 1.Malaria trend before and after non-HRP RDT roll out in Ethiopia
+## 5. Operational researches
+### 5.1. Malaria trend before and after non-HRP RDT roll out in Ethiopia
 This research is an observational study which assessed the status of key HMIS malaria indicators pre and post non-HRP RDT rollout in Ethiopia.
 
 [View Report](reports/Malaria_trend_preand_post_non_HRP RDT_analysis.pdf)
 
-### 2.Effect of the targeted cluster initiative on malaria indicators in Ethiopia 
+### 5.2. Effect of the targeted cluster initiative on malaria indicators in Ethiopia 
 This research employed a non-randomized controlled before-and-after (CBA) study design to assess changes in malaria outcomes during and after the Targeted Cluster Initiative (TCI), a six-month intervention launched in June 2024 in Ethiopia in response to the country’s malaria resurgence. The study aimed to generate an accessible evidence base to inform the planning and implementation of future malaria response interventions.
 
 [View Report](reports/TCI_impact_study.pdf)
