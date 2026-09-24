@@ -34,7 +34,7 @@ The links below provide access to the end-to-end workflow used to produce the bu
 
 - [Bulletin Workflow](bulletin/)
 
-- [Download the all the Monthly Bulletins](https://drive.google.com/file/d/1n6PEx5TtkzSV9KVZvpEzL7H2hIRgWT4B/view?usp=sharing)
+- [View/download all the NMEP Monthly Bulletins](https://drive.google.com/drive/folders/1Hv8cszz0X5qN2NrlpybC2DQ_Ex3BNPMm?usp=sharing)
 
 
 ## 3. Digital Data Collection Tools
@@ -42,7 +42,6 @@ The links below provide access to the end-to-end workflow used to produce the bu
 A KoboToolbox-based digital data collection tool was developed for IRS campaigns at the request of the National Malaria Elimination Program. The tool lays the groundwork for transitioning from Excel-based data collection to a more standardized and structured digital approach.
 
 - [Access the KoboToolbox data collection tool](https://ee.kobotoolbox.org/x/LuvMDzGk)
-
 
 ## 4. MACEPA data analytics fellowship program Capstone Project reports
 ### 4.1. HMIS Service vs Disease Data Analysis
